@@ -24,8 +24,8 @@ class StudentTests extends GrailsUnitTestCase {
 	
 	void testStudentNotAssignedToACourse() {
 		Student student = new Student(name:'AmishMan Johnson')
-		assertFalse student.validate()
-		assertEquals 'nullable', student.errors['course']
+		assertTrue student.validate()
+		assertNull student.errors['course']
 	}
 	
 	void testToString() {

@@ -1,10 +1,9 @@
 package surveyTool
 
 class Student {
-	
 	String name
 	
-	static belongsTo = [course:Course]
+	static hasMany = [registrations:Registration]
 
     static constraints = {
 		name(blank:false)
