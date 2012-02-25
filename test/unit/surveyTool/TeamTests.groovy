@@ -2,7 +2,7 @@ package surveyTool
 
 import grails.test.*
 
-class GroupTests extends GrailsUnitTestCase {
+class TeamTests extends GrailsUnitTestCase {
 	
 	Manager sheepHerder = new Manager(name:'Sheep Herder Paul')
 	Course amish101 = new Course(courseName:'Amish 101', manager:sheepHerder)
@@ -10,7 +10,7 @@ class GroupTests extends GrailsUnitTestCase {
 	
     protected void setUp() {
         super.setUp()
-		mockForConstraintsTests(Group)
+		mockForConstraintsTests(Team)
     }
 
     protected void tearDown() {
@@ -18,18 +18,18 @@ class GroupTests extends GrailsUnitTestCase {
     }
 
     void testGroupValidate() {
-		Group AwesomeHats = new Group(name:'Awesome Hats', project:butterChurning)
+		Team AwesomeHats = new Team(name:'Awesome Hats', project:butterChurning)
 		assertTrue AwesomeHats.validate()
     }
 	
 	void testGroupBlankName() {
-		Group BeardedBandits = new Group(name:'', project:butterChurning)
+		Team BeardedBandits = new Team(name:'', project:butterChurning)
 		assertFalse BeardedBandits.validate()
 		assertEquals 'blank', BeardedBandits.errors['name']
 	}
 	
 	void testGroupToString() {
-		Group AwesomeHats = new Group(name:'Awesome Hats', project:butterChurning)
+		Team AwesomeHats = new Team(name:'Awesome Hats', project:butterChurning)
 		assertTrue AwesomeHats.validate()
 		assertEquals 'Awesome Hats', AwesomeHats.toString()
 	}

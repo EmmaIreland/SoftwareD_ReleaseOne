@@ -2,7 +2,7 @@ package surveyTool
 
 import grails.test.*
 
-class GroupControllerTests extends ControllerUnitTestCase {
+class TeamControllerTests extends ControllerUnitTestCase {
     protected void setUp() {
         super.setUp()
     }
