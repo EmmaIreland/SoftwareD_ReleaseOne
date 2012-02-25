@@ -25,12 +25,12 @@ class BootStrap {
 		Project butterChurning = new Project(name:'Butter Churning', course:amish101).save(failOnError:true)
 		Project gatherHay = new Project(name:'Gathering Hay', course:basketWeaving).save(failOnError:true)
 		
-		Team awesomeHats = new Team(name:'Awesome Hats', project:butterChurning).save(failOnError:true)
-		Team beardedBandits = new Team(name:'Bearded Bandits', project:gatherHay).save(failOnError:true)
-		Team animalLovers = new Team(name:'Animal Lovers', project:gatherHay).save(failOnError:true)
+		Team awesomeHats = new Team(name:'Awesome Hats', course:amish101).save(failOnError:true)
+		Team beardedBandits = new Team(name:'Bearded Bandits', course:amish101).save(failOnError:true)
+		Team animalLovers = new Team(name:'Animal Lovers', course:amish101).save(failOnError:true)
 		
-		StudentTeamAssignment assignment = new StudentTeamAssignment(student:roger, team:awesomeHats).save(failOnError:true)
-		StudentTeamAssignment assignment2 = new StudentTeamAssignment(student:gertrude, team:awesomeHats).save(failOnError:true)
+		StudentTeamAssignment assignment = new StudentTeamAssignment(student:roger, team:beardedBandits).save(failOnError:true)
+		StudentTeamAssignment assignment2 = new StudentTeamAssignment(student:gertrude, team:animalLovers).save(failOnError:true)
 		
 		
 		

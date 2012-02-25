@@ -17,19 +17,19 @@ class TeamTests extends GrailsUnitTestCase {
         super.tearDown()
     }
 
-    void testGroupValidate() {
-		Team AwesomeHats = new Team(name:'Awesome Hats', project:butterChurning)
+    void testTeamValidate() {
+		Team AwesomeHats = new Team(name:'Awesome Hats', course:amish101)
 		assertTrue AwesomeHats.validate()
     }
 	
-	void testGroupBlankName() {
-		Team BeardedBandits = new Team(name:'', project:butterChurning)
+	void testTeamBlankName() {
+		Team BeardedBandits = new Team(name:'', course:amish101)
 		assertFalse BeardedBandits.validate()
 		assertEquals 'blank', BeardedBandits.errors['name']
 	}
 	
-	void testGroupToString() {
-		Team AwesomeHats = new Team(name:'Awesome Hats', project:butterChurning)
+	void testTeamToString() {
+		Team AwesomeHats = new Team(name:'Awesome Hats', course:amish101)
 		assertTrue AwesomeHats.validate()
 		assertEquals 'Awesome Hats', AwesomeHats.toString()
 	}

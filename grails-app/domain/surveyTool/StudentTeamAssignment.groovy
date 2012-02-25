@@ -6,6 +6,7 @@ class StudentTeamAssignment {
 
     static constraints = {
 		student unique:['student', 'team']
+
     }
 	
 	String toString(){
