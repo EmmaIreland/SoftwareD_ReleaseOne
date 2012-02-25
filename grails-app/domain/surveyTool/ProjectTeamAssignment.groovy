@@ -9,6 +9,6 @@ class ProjectTeamAssignment {
     }
 	
 	String toString(){
-		team.toString() + ' is assigned to ' + project.toString()
+		team.toString() + ' is assigned to project ' + project.toString()
 	}
 }

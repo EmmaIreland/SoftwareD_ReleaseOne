@@ -10,6 +10,6 @@ class StudentTeamAssignment {
     }
 	
 	String toString(){
-		student.toString() + ' is in ' + team.toString() 
+		student.toString() + ' is in team ' + team.toString() 
 	}
 }

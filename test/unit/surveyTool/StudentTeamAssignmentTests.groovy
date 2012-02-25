@@ -35,4 +35,11 @@ class StudentTeamAssignmentTests extends GrailsUnitTestCase {
 		assertEquals 'unique', assignment2.errors['student']
 
 	}
+	
+	void testToString(){
+		StudentTeamAssignment assignment = new StudentTeamAssignment(student:roger, team:awesomeHats)
+		mockDomain StudentTeamAssignment, [assignment]
+		assertTrue assignment.validate()
+		assertEquals 'Roger is in team Awesome Hats', assignment.toString()
+	}
 }
