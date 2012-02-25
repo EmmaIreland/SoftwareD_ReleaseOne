@@ -2,6 +2,7 @@ import surveyTool.Course;
 import surveyTool.Student;
 import surveyTool.Enrollment;
 import surveyTool.Manager;
+import surveyTool.Project;
 
 
 class BootStrap {
@@ -19,6 +20,9 @@ class BootStrap {
 		
 		Enrollment enroll = new Enrollment(course:basketWeaving,student:roger).save(failOnError:true)
 		Enrollment enroll2 = new Enrollment(course:basketWeaving,student:gertrude).save(failOnError:true)
+		
+		Project butterChurning = new Project(name:'Butter Churning', course:amish101).save(failOnError:true)
+		Project gatherHay = new Project(name:'Gathering Hay', course:basketWeaving).save(failOnError:true)
 		
 		
 		

@@ -5,7 +5,8 @@ class Course {
 	
 	static belongsTo = [manager:Manager]
 	
-	static hasMany = [enrolled:Enrollment]
+	static hasMany = [enrolled:Enrollment, projects:Project]
+	
 	
     static constraints = {
 		courseName(blank:false)
