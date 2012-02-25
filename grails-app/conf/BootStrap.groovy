@@ -5,6 +5,7 @@ import surveyTool.Manager;
 import surveyTool.Project;
 import surveyTool.Team;
 import surveyTool.StudentTeamAssignment;
+import surveyTool.ProjectTeamAssignment;
 
 class BootStrap {
 
@@ -26,13 +27,14 @@ class BootStrap {
 		Project gatherHay = new Project(name:'Gathering Hay', course:basketWeaving).save(failOnError:true)
 		
 		Team awesomeHats = new Team(name:'Awesome Hats', course:amish101).save(failOnError:true)
-		Team beardedBandits = new Team(name:'Bearded Bandits', course:amish101).save(failOnError:true)
-		Team animalLovers = new Team(name:'Animal Lovers', course:amish101).save(failOnError:true)
+		Team beardedBandits = new Team(name:'Bearded Bandits', course:basketWeaving).save(failOnError:true)
+		Team animalLovers = new Team(name:'Animal Lovers', course:basketWeaving).save(failOnError:true)
 		
 		StudentTeamAssignment assignment = new StudentTeamAssignment(student:roger, team:beardedBandits).save(failOnError:true)
 		StudentTeamAssignment assignment2 = new StudentTeamAssignment(student:gertrude, team:animalLovers).save(failOnError:true)
 		
-		
+		ProjectTeamAssignment pAssignment = new ProjectTeamAssignment(project:gatherHay, team:beardedBandits).save(failOnError:true)
+		ProjectTeamAssignment pAssignment2 = new ProjectTeamAssignment(project:gatherHay, team:animalLovers).save(failOnError:true)
 		
     }
     def destroy = {
