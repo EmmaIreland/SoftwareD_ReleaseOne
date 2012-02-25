@@ -1,12 +1,17 @@
 import surveyTool.Course;
 import surveyTool.Student;
 import surveyTool.Enrollment;
+import surveyTool.Manager;
+
 
 class BootStrap {
 
     def init = { servletContext -> 
-		Course amish101 = new Course(courseName:'Amish 101').save(failOnError:true)
-		Course basketWeaving = new Course(courseName:'Basket Weaving 3301').save(failOnError:true)
+		Manager sheepHerder = new Manager(name:'Sheep Herder Paul').save(failOnError:true)
+		Manager catHerder = new Manager(name:'Cat Herder Greg').save(failOnError:true)
+		
+		Course amish101 = new Course(courseName:'Amish 101', manager:sheepHerder).save(failOnError:true)
+		Course basketWeaving = new Course(courseName:'Basket Weaving 3301', manager:catHerder).save(failOnError:true)
 		
 		Student roger = new Student(name:'Roger').save(failOnError:true)
 		Student jebadiah = new Student(name:'Jebadiah').save(failOnError:true)
