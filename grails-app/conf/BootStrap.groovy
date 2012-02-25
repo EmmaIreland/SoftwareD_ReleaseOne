@@ -3,7 +3,8 @@ import surveyTool.Student;
 import surveyTool.Enrollment;
 import surveyTool.Manager;
 import surveyTool.Project;
-
+import surveyTool.Group;
+import surveyTool.StudentGroupAssignment;
 
 class BootStrap {
 
@@ -23,6 +24,13 @@ class BootStrap {
 		
 		Project butterChurning = new Project(name:'Butter Churning', course:amish101).save(failOnError:true)
 		Project gatherHay = new Project(name:'Gathering Hay', course:basketWeaving).save(failOnError:true)
+		
+		Group awesomeHats = new Group(name:'Awesome Hats', project:butterChurning).save(failOnError:true)
+		Group beardedBandits = new Group(name:'Bearded Bandits', project:gatherHay).save(failOnError:true)
+		Group animalLovers = new Group(name:'Animal Lovers', project:gatherHay).save(failOnError:true)
+		
+		StudentGroupAssignment assignment = new StudentGroupAssignment(student:roger, group:awesomeHats)
+		StudentGroupAssignment assignment2 = new StudentGroupAssignment(student:gertrude, group:awesomeHats)
 		
 		
 		
