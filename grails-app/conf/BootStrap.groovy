@@ -29,8 +29,8 @@ class BootStrap {
 		Group beardedBandits = new Group(name:'Bearded Bandits', project:gatherHay).save(failOnError:true)
 		Group animalLovers = new Group(name:'Animal Lovers', project:gatherHay).save(failOnError:true)
 		
-		StudentGroupAssignment assignment = new StudentGroupAssignment(student:roger, group:awesomeHats)
-		StudentGroupAssignment assignment2 = new StudentGroupAssignment(student:gertrude, group:awesomeHats)
+		StudentGroupAssignment assignment = new StudentGroupAssignment(student:roger, group:awesomeHats).save(failOnError:true)
+		StudentGroupAssignment assignment2 = new StudentGroupAssignment(student:gertrude, group:awesomeHats).save(failOnError:true)
 		
 		
 		
