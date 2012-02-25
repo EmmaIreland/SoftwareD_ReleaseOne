@@ -6,6 +6,7 @@ class ProjectTeamAssignment {
 
     static constraints = {
 		project unique:['project', 'team']
+		project validator: {project, projectTeamAssignment -> project.course == projectTeamAssignment.team.course}
     }
 	
 	String toString(){
