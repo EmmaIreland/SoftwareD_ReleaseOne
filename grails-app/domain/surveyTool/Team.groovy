@@ -11,7 +11,7 @@ class Team {
 	static constraints = {
 
 		name(blank:false)
-		// student validator: { student, team -> Enrollment.findByStudentAndCourse(student, team.course) != null }
+		
 	}
 
 	String toString(){

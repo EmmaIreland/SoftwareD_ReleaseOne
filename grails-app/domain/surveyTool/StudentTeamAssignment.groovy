@@ -6,7 +6,7 @@ class StudentTeamAssignment {
 
     static constraints = {
 		student unique:['student', 'team']
-
+		student validator: {student, studentTeamAssignment -> Enrollment.findByStudentAndCourse(student, studentTeamAssignment.team.course) != null }
     }
 	
 	String toString(){

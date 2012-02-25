@@ -20,12 +20,16 @@ class StudentTeamAssignmentTests extends GrailsUnitTestCase {
     }
 
     void testStudentTeamAssignmentValidate() {
+		Enrollment enroll = new Enrollment(student:roger, course:amish101)
+		mockDomain Enrollment, [enroll]
 		StudentTeamAssignment assignment = new StudentTeamAssignment(student:roger, team:awesomeHats)
 		mockDomain StudentTeamAssignment, [assignment]
 		assertTrue assignment.validate()
     }
 	
 	void testStudentTeamAssignmentUniqueness() {
+		Enrollment enroll = new Enrollment(student:roger, course:amish101)
+		mockDomain Enrollment, [enroll]
 		StudentTeamAssignment assignment = new StudentTeamAssignment(student:roger, team:awesomeHats)
 		StudentTeamAssignment assignment2 = new StudentTeamAssignment(student:roger, team:awesomeHats)
 		mockDomain StudentTeamAssignment, [assignment, assignment2]
@@ -37,6 +41,8 @@ class StudentTeamAssignmentTests extends GrailsUnitTestCase {
 	}
 	
 	void testToString(){
+		Enrollment enroll = new Enrollment(student:roger, course:amish101)
+		mockDomain Enrollment, [enroll]
 		StudentTeamAssignment assignment = new StudentTeamAssignment(student:roger, team:awesomeHats)
 		mockDomain StudentTeamAssignment, [assignment]
 		assertTrue assignment.validate()
