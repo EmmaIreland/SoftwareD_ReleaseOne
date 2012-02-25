@@ -3,7 +3,7 @@ package surveyTool
 class Student {
 	String name
 	
-	static hasMany = [registrations:Registration]
+	static hasMany = [enrolled:Enrollment]
 
     static constraints = {
 		name(blank:false)

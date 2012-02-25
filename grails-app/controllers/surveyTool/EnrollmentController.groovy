@@ -1,6 +1,6 @@
 package surveyTool
 
-class RegistrationController {
+class EnrollmentController {
 
     def scaffold = true
 }

@@ -2,7 +2,7 @@ package surveyTool
 
 import grails.test.*
 
-class RegistrationControllerTests extends ControllerUnitTestCase {
+class EnrollmentControllerTests extends ControllerUnitTestCase {
     protected void setUp() {
         super.setUp()
     }

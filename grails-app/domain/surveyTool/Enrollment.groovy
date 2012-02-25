@@ -1,6 +1,6 @@
 package surveyTool
 
-class Registration {
+class Enrollment {
 	
 	static belongsTo = [course:Course, student:Student]
 
@@ -8,4 +8,10 @@ class Registration {
 		
 		course unique:['course', 'student']
     }
+	
+	String toString() {
+		student.toString() + ' is enrolled in ' + course.toString()
+	}
+	
+	
 }
