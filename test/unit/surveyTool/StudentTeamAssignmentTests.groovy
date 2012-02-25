@@ -2,7 +2,7 @@ package surveyTool
 
 import grails.test.*
 
-class StudentGroupAssignmentTests extends GrailsUnitTestCase {
+class StudentTeamAssignmentTests extends GrailsUnitTestCase {
 	
 	Student roger = new Student(name:'Roger')
 	Manager sheepHerder = new Manager(name:'Sheep Herder Paul')
@@ -12,23 +12,23 @@ class StudentGroupAssignmentTests extends GrailsUnitTestCase {
 	
     protected void setUp() {
         super.setUp()
-		mockForConstraintsTests(StudentGroupAssignment)
+		mockForConstraintsTests(StudentTeamAssignment)
     }
 
     protected void tearDown() {
         super.tearDown()
     }
 
-    void testStudentGroupAssignmentValidate() {
-		StudentGroupAssignment assignment = new StudentGroupAssignment(student:roger, group:awesomeHats)
-		mockDomain StudentGroupAssignment, [assignment]
+    void testStudentTeamAssignmentValidate() {
+		StudentTeamAssignment assignment = new StudentTeamAssignment(student:roger, team:awesomeHats)
+		mockDomain StudentTeamAssignment, [assignment]
 		assertTrue assignment.validate()
     }
 	
-	void testStudentGroupAssignmentUniqueness() {
-		StudentGroupAssignment assignment = new StudentGroupAssignment(student:roger, group:awesomeHats)
-		StudentGroupAssignment assignment2 = new StudentGroupAssignment(student:roger, group:awesomeHats)
-		mockDomain StudentGroupAssignment, [assignment, assignment2]
+	void testStudentTeamAssignmentUniqueness() {
+		StudentTeamAssignment assignment = new StudentTeamAssignment(student:roger, team:awesomeHats)
+		StudentTeamAssignment assignment2 = new StudentTeamAssignment(student:roger, team:awesomeHats)
+		mockDomain StudentTeamAssignment, [assignment, assignment2]
 		assertFalse assignment.validate()
 		assertFalse assignment2.validate()
 		assertEquals 'unique', assignment.errors['student']

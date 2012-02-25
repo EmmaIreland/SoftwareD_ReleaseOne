@@ -4,7 +4,7 @@ import surveyTool.Enrollment;
 import surveyTool.Manager;
 import surveyTool.Project;
 import surveyTool.Team;
-import surveyTool.StudentGroupAssignment;
+import surveyTool.StudentTeamAssignment;
 
 class BootStrap {
 

@@ -6,7 +6,7 @@ class Project {
 	
 	static belongsTo = [course:Course]
 	
-//	static hasMany = [groups:Group]
+	static hasMany = [teams:Team]
 	
     static constraints = {
 		

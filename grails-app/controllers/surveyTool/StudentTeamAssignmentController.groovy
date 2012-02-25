@@ -1,6 +1,6 @@
 package surveyTool
 
-class StudentGroupAssignmentController {
+class StudentTeamAssignmentController {
 
     def scaffold = true
 }
