@@ -1,7 +1,7 @@
 
 <html>
     <head>
-        <title>Welcome to Team Amish's class survey tool!'</title>
+        <title>Team Amish's Group Management Tool</title>
         <meta name="layout" content="main" />
         <style type="text/css" media="screen">
 
@@ -63,16 +63,13 @@
 					<li class="controller"><g:link controller="project">Projects</g:link></li>
 					<li class="controller"><g:link controller="team">Teams</g:link></li>
 					<li class="controller"><g:link controller="student">Students</g:link></li>
-					<li class="controller"><g:link controller="enrollment">Enrollment list (temp)</g:link></li>
-					<li class="controller"><g:link controller="projectTeamAssignment">PTA list (temp)</g:link></li>
-					<li class="controller"><g:link controller="studentTeamAssignment">STA list (temp)</g:link></li>
                 </ul>
                 </div>
                 <div class="panelBtm"></div>
             </div>
         </div>
         <div id="pageBody">
-            <h1>Welcome to Grails</h1>
+            <h1>Welcome to Team Amish's Group Management Tool!</h1>
             <p>Congratulations, you have successfully started your first Grails application! At the moment
             this is the default page, feel free to modify it to either redirect to a controller or display whatever
             content you may choose. Below is a list of controllers that are currently deployed in this application,

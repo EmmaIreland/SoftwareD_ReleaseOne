@@ -5,7 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
-        <g:set var="entityName" value="${message(code: 'projectTeamAssignment.label', default: 'ProjectTeamAssignment')}" />
+        <g:set var="entityName" value="${message(code: 'projectTeamAssignment.label', default: 'Project Team Assignment')}" />
         <title><g:message code="default.edit.label" args="[entityName]" /></title>
     </head>
     <body>
