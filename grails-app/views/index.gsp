@@ -1,3 +1,4 @@
+
 <html>
     <head>
         <title>Welcome to Team Amish's class survey tool!'</title>
@@ -55,11 +56,16 @@
             <div class="homePagePanel">
                 <div class="panelTop"></div>
                 <div class="panelBody">
-                   <h2>Available Controllers:</h2>
+                   <h2>Site Map:</h2>
                 <ul>
-                    <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-                        <li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
-                    </g:each>
+					<li class="controller"><g:link controller="manager">Managers</g:link></li>
+					<li class="controller"><g:link controller="course">Courses</g:link></li>
+					<li class="controller"><g:link controller="project">Projects</g:link></li>
+					<li class="controller"><g:link controller="team">Teams</g:link></li>
+					<li class="controller"><g:link controller="student">Students</g:link></li>
+					<li class="controller"><g:link controller="enrollment">Enrollment list (temp)</g:link></li>
+					<li class="controller"><g:link controller="projectTeamAssignment">PTA list (temp)</g:link></li>
+					<li class="controller"><g:link controller="studentTeamAssignment">STA list (temp)</g:link></li>
                 </ul>
                 </div>
                 <div class="panelBtm"></div>
@@ -75,6 +81,7 @@
             <div id="controllerList" class="dialog">
                 <h2>Available Controllers:</h2>
                 <ul>
+                    
                     <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
                         <li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
                     </g:each>
