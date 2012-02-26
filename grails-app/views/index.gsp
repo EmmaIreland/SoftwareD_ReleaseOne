@@ -57,6 +57,7 @@
                 <div class="panelTop"></div>
                 <div class="panelBody">
                    <h2>Site Map:</h2>
+                   <br></br>
                 <ul>
 					<li class="controller"><g:link controller="manager">Managers</g:link></li>
 					<li class="controller"><g:link controller="course">Courses</g:link></li>
@@ -70,10 +71,24 @@
         </div>
         <div id="pageBody">
             <h1>Welcome to Team Amish's Group Management Tool!</h1>
+            <br></br>
             <p>This is a group management tool that supports the efficient incorporation of survey data in the group 
-            management process. Unlike Google Survey Tool or paper alternatives, our project specifically supports
+            management process.
+            <br></br> 
+            Unlike Google Survey Tool or paper alternatives, our project specifically supports
             group projects in a course setting.</p>
-
+			
+			<br></br>
+			
+			<h3>Benefits:</h3>
+			<br></br>
+				<ul>
+					<li>Creates cohesive, dynamic groups that lead to effective outcomes.</li>
+					<li>Empowers students and teachers to give and get meaningful feedback.</li>
+					<li>It's convenient!</li>
+					<li>Improves student performance and experience.</li>
+				</ul>
+			
             <div id="controllerList" class="dialog">
                 <h2>Available Controllers:</h2>
                 <ul>
