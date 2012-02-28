@@ -11,7 +11,8 @@ class Course {
 	
 	
     static constraints = {
-		courseName(blank:false)
+		
+		courseName(blank:false, unique:['term', 'year'])
 		term inList:['Fall', 'Spring', 'Summer']
 		year()
 		manager()

@@ -10,7 +10,7 @@ class Project {
 	static hasMany = [teamAssignments:ProjectTeamAssignment]
 	
     static constraints = {
-		name(blank:false)
+		name(blank:false, unique:['course'])
 		description()
     }
 	

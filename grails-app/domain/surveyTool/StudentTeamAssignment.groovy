@@ -9,7 +9,7 @@ class StudentTeamAssignment {
 		student validator: {student, studentTeamAssignment -> Enrollment.findByStudentAndCourse(student, studentTeamAssignment.team.course) != null }
     }
 	
-	String toString(){
+	String toString() {
 		student.toString() + ' is in team ' + team.toString() 
 	}
 }
