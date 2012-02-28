@@ -41,6 +41,15 @@
                                     <g:textField name="name" value="${studentInstance?.name}" />
                                 </td>
                             </tr>
+                            
+                             <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="email"><g:message code="student.email.label" default="Email" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: studentInstance, field: 'email', 'errors')}">
+                                    <g:textField name="email" value="${studentInstance?.email}" />
+                                </td>
+                            </tr>
                         
                             <tr class="prop">
                                 <td valign="top" class="name">

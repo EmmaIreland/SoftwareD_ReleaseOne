@@ -11,25 +11,25 @@ class StudentTests extends GrailsUnitTestCase {
     }
 
     void testStudentCreation() {
-		Student student = new Student(name:'AmishMan Johnson', course:amish101)
+		Student student = new Student(name:'AmishMan Johnson', email:'cats@gmail.com',course:amish101)
 		assertTrue student.validate()
 		assertNull student.errors['name']
     }
 	
 	void testStudentBlankName() {
-		Student student = new Student(name:'', course:amish101)
+		Student student = new Student(name:'', email:'cats@gmail.com', course:amish101)
 		assertFalse student.validate()
 		assertEquals 'blank', student.errors['name']
 	}
 	
 	void testStudentNotAssignedToACourse() {
-		Student student = new Student(name:'AmishMan Johnson')
+		Student student = new Student(name:'AmishMan Johnson', email:'cats@gmail.com')
 		assertTrue student.validate()
 		assertNull student.errors['course']
 	}
 	
 	void testToString() {
-		Student student = new Student(name:'AmishMan Johnson', course:amish101)
+		Student student = new Student(name:'AmishMan Johnson', email:'cats@gmail.com', course:amish101)
 		assertTrue student.validate()
 		assertEquals 'AmishMan Johnson', student.toString()
 	}

@@ -31,6 +31,13 @@
                             <td valign="top" class="value">${fieldValue(bean: studentInstance, field: "name")}</td>
                             
                         </tr>
+                        
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="student.email.label" default="Email" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: studentInstance, field: "email")}</td>
+                            
+                        </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="student.enrolled.label" default="Enrolled" /></td>

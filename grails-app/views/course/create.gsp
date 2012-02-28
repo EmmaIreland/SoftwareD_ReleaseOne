@@ -36,6 +36,24 @@
                                     <g:textField name="courseName" value="${courseInstance?.courseName}" />
                                 </td>
                             </tr>
+                             
+                             <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="term"><g:message code="course.term.label" default="Term" /></label>
+                                </td>
+                               <td valign="top" class="value ${hasErrors(bean: courseInstance, field: 'term', 'errors')}">
+                                    <g:select name="term" from="${courseInstance.constraints.term.inList}" value="${fieldValue(bean: courseInstance, field: 'term')}" valueMessagePrefix="course.term"  />
+                                </td>
+                            </tr>
+                             
+                             <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="year"><g:message code="course.year.label" default="Year" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: courseInstance, field: 'year', 'errors')}">
+                                    <g:textField name="year" value="${courseInstance?.year}" />
+                                </td>
+                            </tr>
                         
                             <tr class="prop">
                                 <td valign="top" class="name">

@@ -40,6 +40,18 @@
                             <td valign="top" class="value"><g:link controller="manager" action="show" id="${courseInstance?.manager?.id}">${courseInstance?.manager?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="course.term.label" default="Term" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: courseInstance, field: "term")}</td>
+                            
+                        </tr>
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="course.year.label" default="Year" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: courseInstance, field: "year")}</td>
+                            
+                        </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="course.enrolled.label" default="Enrolled" /></td>

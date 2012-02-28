@@ -24,6 +24,8 @@
                         
                             <g:sortableColumn property="name" title="${message(code: 'project.name.label', default: 'Name')}" />
                         
+                            <th><g:message code="project.description.label" default="Description" /></th>
+                            
                             <th><g:message code="project.course.label" default="Course" /></th>
                         
                         </tr>
@@ -34,6 +36,7 @@
                         
                             <td><g:link action="show" id="${projectInstance.id}">${fieldValue(bean: projectInstance, field: "name")}</g:link></td>
                         
+                            <td>${fieldValue(bean: projectInstance, field: "description")}</td>
                         
                             <td>${fieldValue(bean: projectInstance, field: "course")}</td>
                         

@@ -30,6 +30,13 @@
                             <td valign="top" class="value">${fieldValue(bean: projectInstance, field: "name")}</td>
                             
                         </tr>
+                        
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="project.description.label" default="Description" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: projectInstance, field: "description")}</td>
+                            
+                        </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="project.course.label" default="Course" /></td>

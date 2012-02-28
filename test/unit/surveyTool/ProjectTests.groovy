@@ -17,18 +17,18 @@ class ProjectTests extends GrailsUnitTestCase {
     }
 
     void testProjectValidate() {
-		Project butterChurning = new Project(name:'Butter Churning', course:amish101)
+		Project butterChurning = new Project(name:'Butter Churning',description:'', course:amish101)
 		assertTrue butterChurning.validate() 
     }
 		
 	void testProjectNameBlank() {	
-		Project cabinetMaking = new Project(name:'', course:amish101)
+		Project cabinetMaking = new Project(name:'',description:'', course:amish101)
 		assertFalse cabinetMaking.validate()
 		assertEquals 'blank', cabinetMaking.errors['name']
     }
 	
 	void testProjectToString() {
-		Project butterChurning = new Project(name:'Butter Churning', course:amish101)
+		Project butterChurning = new Project(name:'Butter Churning',description:'', course:amish101)
 		assertTrue butterChurning.validate()
 		assertEquals 'Butter Churning', butterChurning.toString()
 	}

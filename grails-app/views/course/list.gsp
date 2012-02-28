@@ -23,10 +23,9 @@
                         <tr>
                         
                             <g:sortableColumn property="courseName" title="${message(code: 'course.courseName.label', default: 'Course Name')}" />
-                        
-                           
-                        
                             <th><g:message code="course.manager.label" default="Manager" /></th>
+                            <th><g:message code="course.term.label" default="Term" /></th>
+                            <th><g:message code="course.year.label" default="Year" /></th>
                         
                         </tr>
                     </thead>
@@ -35,10 +34,9 @@
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
                             <td><g:link action="show" id="${courseInstance.id}">${fieldValue(bean: courseInstance, field: "courseName")}</g:link></td>
-                        
-                        
-                            <td>${fieldValue(bean: courseInstance, field: "manager")}</td>
-                        
+                     		 <td>${fieldValue(bean: courseInstance, field: "manager")}</td>                    		 
+                     		 <td>${fieldValue(bean: courseInstance, field: "term")}</td>
+                    		 <td>${fieldValue(bean: courseInstance, field: "year")}</td>
                         </tr>
                     </g:each>
                     </tbody>

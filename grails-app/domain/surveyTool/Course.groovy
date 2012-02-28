@@ -2,6 +2,8 @@ package surveyTool
 
 class Course {
 	String courseName
+	String term
+	String year
 	
 	static belongsTo = [manager:Manager]
 	
@@ -10,6 +12,8 @@ class Course {
 	
     static constraints = {
 		courseName(blank:false)
+		term inList:['Fall', 'Spring', 'Summer']
+		year()
 		manager()
 		enrolled()
     }
