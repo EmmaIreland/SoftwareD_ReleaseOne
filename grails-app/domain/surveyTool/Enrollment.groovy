@@ -10,7 +10,7 @@ class Enrollment {
     }
 	
 	String toString() {
-		student.toString() + ' is enrolled in ' + course.toString()
+		student.toString()
 	}
 	
 	

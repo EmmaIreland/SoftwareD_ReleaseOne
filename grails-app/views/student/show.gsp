@@ -44,7 +44,7 @@
                             
                             <td valign="top" style="text-align: left;" class="value">
                                 <ul>
-                                <g:each in="${studentInstance.enrolled}" var="e">
+                                <g:each in="${studentInstance.enrolled.course}" var="e">
                                     <li><g:link controller="enrollment" action="show" id="${e.id}">${e?.encodeAsHTML()}</g:link></li>
                                 </g:each>
                                 </ul>
