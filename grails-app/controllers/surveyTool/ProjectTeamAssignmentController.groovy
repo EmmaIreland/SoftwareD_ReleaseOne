@@ -24,7 +24,7 @@ class ProjectTeamAssignmentController {
     def save = {
         def projectTeamAssignmentInstance = new ProjectTeamAssignment(params)
         if (projectTeamAssignmentInstance.save(flush: true)) {
-            flash.message = "${message(code: 'default.created.message', args: [message(code: 'projectTeamAssignment.label', default: 'ProjectTeamAssignment'), projectTeamAssignmentInstance.id])}"
+            flash.message = "${message(code: 'projectTeamAssignment.created.message', args: [message(code: 'projectTeamAssignment.label', default: 'ProjectTeamAssignment'), projectTeamAssignmentInstance.id, projectTeamAssignmentInstance.project, projectTeamAssignmentInstance.team])}"
             redirect(action: "show", id: projectTeamAssignmentInstance.id)
         }
         else {

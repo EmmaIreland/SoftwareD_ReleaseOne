@@ -24,7 +24,7 @@ class ManagerController {
     def save = {
         def managerInstance = new Manager(params)
         if (managerInstance.save(flush: true)) {
-            flash.message = "${message(code: 'default.created.message', args: [message(code: 'manager.label', default: 'Manager'), managerInstance.id])}"
+            flash.message = "${message(code: 'default.created.message', args: [message(code: 'manager.label', default: 'Manager'), managerInstance.name])}"
             redirect(action: "show", id: managerInstance.id)
         }
         else {

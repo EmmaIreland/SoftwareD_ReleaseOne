@@ -24,7 +24,7 @@ class EnrollmentController {
     def save = {
         def enrollmentInstance = new Enrollment(params)
         if (enrollmentInstance.save(flush: true)) {
-            flash.message = "${message(code: 'default.created.message', args: [message(code: 'enrollment.label', default: 'Enrollment'), enrollmentInstance.id])}"
+            flash.message = "${message(code: 'enrollment.created.message', args: [message(code: 'enrollment.label', default: 'Enrollment'), enrollmentInstance.id, enrollmentInstance.student, enrollmentInstance.course])}"
             redirect(action: "show", id: enrollmentInstance.id)
         }
         else {

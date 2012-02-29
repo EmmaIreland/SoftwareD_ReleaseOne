@@ -22,7 +22,7 @@ class CourseController {
     def save = {
         def courseInstance = new Course(params)
         if (courseInstance.save(flush: true)) {
-            flash.message = "${message(code: 'default.created.message', args: [message(code: 'course.label', default: 'Course'), courseInstance.id])}"
+            flash.message = "${message(code: 'default.created.message', args: [message(code: 'course.label', default: 'Course'), courseInstance.courseName])}"
             redirect(action: "show", id: courseInstance.id)
         }
         else {
@@ -66,7 +66,7 @@ class CourseController {
             }
             courseInstance.properties = params
             if (!courseInstance.hasErrors() && courseInstance.save(flush: true)) {
-                flash.message = "${message(code: 'default.updated.message', args: [message(code: 'course.label', default: 'Course'), courseInstance.id])}"
+                flash.message = "${message(code: 'default.updated.message', args: [message(code: 'course.label', default: 'Course'), courseInstance.courseName])}"
                 redirect(action: "show", id: courseInstance.id)
             }
             else {

@@ -24,7 +24,7 @@ class TeamController {
     def save = {
         def teamInstance = new Team(params)
         if (teamInstance.save(flush: true)) {
-            flash.message = "${message(code: 'default.created.message', args: [message(code: 'team.label', default: 'Team'), teamInstance.id])}"
+            flash.message = "${message(code: 'default.created.message', args: [message(code: 'team.label', default: 'Team'), teamInstance.name])}"
             redirect(action: "show", id: teamInstance.id)
         }
         else {
@@ -68,7 +68,7 @@ class TeamController {
             }
             teamInstance.properties = params
             if (!teamInstance.hasErrors() && teamInstance.save(flush: true)) {
-                flash.message = "${message(code: 'default.updated.message', args: [message(code: 'team.label', default: 'Team'), teamInstance.id])}"
+                flash.message = "${message(code: 'default.updated.message', args: [message(code: 'team.label', default: 'Team'), teamInstance.name])}"
                 redirect(action: "show", id: teamInstance.id)
             }
             else {

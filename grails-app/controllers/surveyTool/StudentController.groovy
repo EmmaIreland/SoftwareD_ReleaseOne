@@ -22,7 +22,7 @@ class StudentController {
     def save = {
         def studentInstance = new Student(params)
         if (studentInstance.save(flush: true)) {
-            flash.message = "${message(code: 'default.created.message', args: [message(code: 'student.label', default: 'Student'), studentInstance.id])}"
+            flash.message = "${message(code: 'default.created.message', args: [message(code: 'student.label', default: 'Student'), studentInstance.name])}"
             redirect(action: "show", id: studentInstance.id)
         }
         else {
@@ -66,7 +66,7 @@ class StudentController {
             }
             studentInstance.properties = params
             if (!studentInstance.hasErrors() && studentInstance.save(flush: true)) {
-                flash.message = "${message(code: 'default.updated.message', args: [message(code: 'student.label', default: 'Student'), studentInstance.id])}"
+                flash.message = "${message(code: 'default.updated.message', args: [message(code: 'student.label', default: 'Student'), studentInstance.name])}"
                 redirect(action: "show", id: studentInstance.id)
             }
             else {
