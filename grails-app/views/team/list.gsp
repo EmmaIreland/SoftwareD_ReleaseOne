@@ -25,6 +25,8 @@
                             <g:sortableColumn property="name" title="${message(code: 'team.name.label', default: 'Name')}" />
                         
                             <th><g:message code="team.course.label" default="Course" /></th>
+                            
+                            <g:sortableColumn property="comments" title="${message(code: 'team.comments.label', default: 'Comments')}" />
                         
                         </tr>
                     </thead>
@@ -36,6 +38,7 @@
                         
                         
                             <td>${fieldValue(bean: teamInstance, field: "course")}</td>
+                            <td>${fieldValue(bean: teamInstance, field: "comments")}</td>
                         
                         </tr>
                     </g:each>

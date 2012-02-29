@@ -18,18 +18,18 @@ class TeamTests extends GrailsUnitTestCase {
     }
 
     void testTeamValidate() {
-		Team AwesomeHats = new Team(name:'Awesome Hats', course:amish101)
+		Team AwesomeHats = new Team(name:'Awesome Hats', course:amish101, comments:'Pretty awesome hats')
 		assertTrue AwesomeHats.validate()
     }
 	
 	void testTeamBlankName() {
-		Team BeardedBandits = new Team(name:'', course:amish101)
+		Team BeardedBandits = new Team(name:'', course:amish101, comments:'Pretty awesome hats')
 		assertFalse BeardedBandits.validate()
 		assertEquals 'blank', BeardedBandits.errors['name']
 	}
 	
 	void testTeamToString() {
-		Team AwesomeHats = new Team(name:'Awesome Hats', course:amish101)
+		Team AwesomeHats = new Team(name:'Awesome Hats', course:amish101, comments:'')
 		assertTrue AwesomeHats.validate()
 		assertEquals 'Awesome Hats', AwesomeHats.toString()
 	}

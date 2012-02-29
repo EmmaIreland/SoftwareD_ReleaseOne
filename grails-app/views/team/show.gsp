@@ -37,6 +37,13 @@
                             <td valign="top" class="value"><g:link controller="course" action="show" id="${teamInstance?.course?.id}">${teamInstance?.course?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
+                        
+                        <tr class="prop">
+                            <td valign="top" class="comments"><g:message code="team.comments.label" default="Comments" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: teamInstance, field: "comments")}</td>
+                            
+                        </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="team.projectAssignments.label" default="Project Assignments" /></td>
