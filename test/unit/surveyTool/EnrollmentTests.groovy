@@ -31,7 +31,7 @@ class EnrollmentTests extends GrailsUnitTestCase {
 		Enrollment registration = new Enrollment(course:amish101,student:roger)
 		mockDomain Enrollment, [registration]
 		assertTrue registration.validate()
-		assertEquals 'Roger is enrolled in Amish 101', registration.toString()
+		assertEquals 'Roger', registration.toString()
 	}
 	
 	protected void tearDown() {
