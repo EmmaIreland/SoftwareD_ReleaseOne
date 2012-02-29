@@ -25,12 +25,23 @@ class EnrollmentController {
         def enrollmentInstance = new Enrollment(params)
         if (enrollmentInstance.save(flush: true)) {
             flash.message = "${message(code: 'enrollment.created.message', args: [message(code: 'enrollment.label', default: 'Enrollment'), enrollmentInstance.id, enrollmentInstance.student, enrollmentInstance.course])}"
-            redirect(action: "show", id: enrollmentInstance.id)
+				redirect(controller:"course", action: "show", id: enrollmentInstance.course.id)
         }
         else {
             render(view: "create", model: [enrollmentInstance: enrollmentInstance])
         }
     }
+	
+	def saveAndContinue = {
+		def enrollmentInstance = new Enrollment(params)
+		if (enrollmentInstance.save(flush: true)) {
+			flash.message = "${message(code: 'enrollment.created.message', args: [message(code: 'enrollment.label', default: 'Enrollment'), enrollmentInstance.id, enrollmentInstance.student, enrollmentInstance.course])}"
+			redirect(controller:"enrollment", action: "create")
+		}
+		else {
+			render(view: "create", model: [enrollmentInstance: enrollmentInstance])
+		}
+	}
 
     def show = {
         def enrollmentInstance = Enrollment.get(params.id)

@@ -50,8 +50,14 @@
                     </table>
                 </div>
                 <div class="buttons">
-                    <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
+                    <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}"/></span>
                 </div>
+                <div class="buttons">
+					<span class="button"><g:actionSubmit name="create" class="save" action="saveAndContinue" value="${message(code: 'default.button.createAndContinue.label', default: 'Create and Continue')}"/></span>  
+					
+
+					             
+					 </div>
             </g:form>
         </div>
     </body>
