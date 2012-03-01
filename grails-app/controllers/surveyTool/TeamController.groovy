@@ -31,6 +31,28 @@ class TeamController {
             render(view: "create", model: [teamInstance: teamInstance])
         }
     }
+	
+	def saveAndAssignStudent = {
+		def teamInstance = new Team(params)
+		if (teamInstance.save(flush: true)) {
+			flash.message = "${message(code: 'default.created.message', args: [message(code: 'team.label', default: 'Team'), teamInstance.name])}"
+			redirect(controller:"studentTeamAssignment", action: "create")
+		}
+		else {
+			render(view: "create", model: [teamInstance: teamInstance])
+		}
+	}
+	
+	def saveAndAssignProject = {
+		def teamInstance = new Team(params)
+		if (teamInstance.save(flush: true)) {
+			flash.message = "${message(code: 'default.created.message', args: [message(code: 'team.label', default: 'Team'), teamInstance.name])}"
+			redirect(controller:"projectTeamAssignment", action: "create")
+		}
+		else {
+			render(view: "create", model: [teamInstance: teamInstance])
+		}
+	}
 
     def show = {
         def teamInstance = Team.get(params.id)

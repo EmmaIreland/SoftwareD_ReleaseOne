@@ -29,6 +29,17 @@ class ProjectController {
             render(view: "create", model: [projectInstance: projectInstance])
         }
     }
+	
+	def saveAndAssignTeam = {
+		def projectInstance = new Project(params)
+		if (projectInstance.save(flush: true)) {
+			flash.message = "${message(code: 'default.created.message', args: [message(code: 'project.label', default: 'Project'), projectInstance.name])}"
+			redirect(controller:"projectTeamAssignment",action: "create")
+		}
+		else {
+			render(view: "create", model: [projectInstance: projectInstance])
+		}
+	}
 
     def show = {
         def projectInstance = Project.get(params.id)
