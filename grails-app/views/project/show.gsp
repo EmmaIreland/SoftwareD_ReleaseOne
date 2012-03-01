@@ -15,7 +15,7 @@
             <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>        
         </div>
         <div class="body">
-            <h1><g:message code="default.show.label" args="[entityName]" /></h1>
+            <h1> Project Details </h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -69,6 +69,7 @@
                 </g:form>
             </div>
             <br></br>
+            <h1> Project Teams </h1>
             <div class="list">
                 <table>
                     <thead>
@@ -76,7 +77,7 @@
                          
                             <g:sortableColumn property="name" title="${message(code: 'project.team.label', default: 'Team')}" />
                         
-                            <th><g:message code="project.course.label" default="Students" /></th>
+                            <th><g:message code="project.course.label" default="Students in Team" /></th>
                             
                         
                         </tr>
