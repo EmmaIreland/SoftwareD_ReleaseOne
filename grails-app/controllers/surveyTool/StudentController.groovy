@@ -22,13 +22,35 @@ class StudentController {
     def save = {
         def studentInstance = new Student(params)
         if (studentInstance.save(flush: true)) {
-            flash.message = "${message(code: 'default.created.message', args: [message(code: 'student.label', default: 'Student'), studentInstance.name])}"
+            flash.message = "${message(code: 'student.created.message', args: [message(code: 'student.label', default: 'Student'), studentInstance.name])}"
             redirect(action: "show", id: studentInstance.id)
         }
         else {
             render(view: "create", model: [studentInstance: studentInstance])
         }
     }
+	
+	def saveAndContinue = {
+		def studentInstance = new Student(params)
+		if (studentInstance.save(flush: true)) {
+			flash.message = "${message(code: 'student.created.message', args: [message(code: 'student.label', default: 'Student'), studentInstance.name])}"
+			redirect(controller:"student", action: "create")
+		}
+		else {
+			render(view: "create", model: [studentInstance: studentInstance])
+		}
+	}
+	
+	def saveAndEnroll = {
+		def studentInstance = new Student(params)
+		if (studentInstance.save(flush: true)) {
+			flash.message = "${message(code: 'student.created.message', args: [message(code: 'student.label', default: 'Student'), studentInstance.name])}"
+			redirect(controller:"enrollment", action: "create")
+		}
+		else {
+			render(view: "create", model: [studentInstance: studentInstance])
+		}
+	}
 
     def show = {
         def studentInstance = Student.get(params.id)
