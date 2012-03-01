@@ -50,8 +50,8 @@
                             
                             <td valign="top" style="text-align: left;" class="value">
                                 <ul>
-                                <g:each in="${teamInstance.projectAssignments}" var="p">
-                                    <li><g:link controller="projectTeamAssignment" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
+                                <g:each in="${teamInstance.projectAssignments.project}" var="p">
+                                    <li><g:link controller="project" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
                                 </g:each>
                                 </ul>
                             </td>
@@ -63,8 +63,8 @@
                             
                             <td valign="top" style="text-align: left;" class="value">
                                 <ul>
-                                <g:each in="${teamInstance.studentAssignments}" var="s">
-                                    <li><g:link controller="studentTeamAssignment" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></li>
+                                <g:each in="${teamInstance.studentAssignments.student}" var="s">
+                                    <li><g:link controller="student" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></li>
                                 </g:each>
                                 </ul>
                             </td>

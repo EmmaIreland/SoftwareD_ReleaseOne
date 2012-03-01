@@ -45,18 +45,6 @@
                             
                         </tr>
                     
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="project.teamAssignments.label" default="Team Assignments" /></td>
-                            
-                            <td valign="top" style="text-align: left;" class="value">
-                                <ul>
-                                <g:each in="${projectInstance.teamAssignments}" var="t">
-                                    <li><g:link controller="projectTeamAssignment" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></li>
-                                </g:each>
-                                </ul>
-                            </td>
-                            
-                        </tr>
                     
                     </tbody>
                 </table>
@@ -86,13 +74,13 @@
                     <g:each in="${projectInstance.teamAssignments.team}" status="i" var="k">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
-                            <td><g:link controller="projectTeamAssignment" action="show" id="${k.id}">${k?.encodeAsHTML()}</g:link> </td>
+                            <td><g:link controller="team" action="show" id="${k.id}">${k?.encodeAsHTML()}</g:link> </td>
                         
                         	<td valign="top" style="text-align: left;" class="value">
                                <ul>
                                 <g:each in="${k.studentAssignments.student}" var="s">
                       
-                                    <li><g:link controller="studentTeamAssignment" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></li>
+                                    <li><g:link controller="student" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></li>
                                 </g:each>
                                </ul>
                            </td>
