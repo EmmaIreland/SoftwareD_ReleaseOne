@@ -59,10 +59,14 @@
                     </table>
                 </div>
                 <div class="buttons">
-                    <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.createAndView.label', default: 'Create and View Project')}" /></span>
+                    <span class="button"><g:actionSubmit name="create" class="save" action="saveAndCreateTeam" value="${message(code: 'default.button.saveAndCreateTeam.label', default: 'Save and Create Team')}" /></span>
                 </div>
+                
                 <div class="buttons">
                     <span class="button"><g:actionSubmit name="create" class="save" action="saveAndAssignTeam" value="${message(code: 'default.button.createAndAssignTeam.label', default: 'Create and Assign Team')}" /></span>
+                </div>
+                <div class="buttons">
+                    <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.createAndView.label', default: 'Create and View Project')}" /></span>
                 </div>
             </g:form>
         </div>

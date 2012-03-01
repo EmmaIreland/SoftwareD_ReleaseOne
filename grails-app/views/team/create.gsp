@@ -60,12 +60,11 @@
                 </div>
                 <div class="buttons">         	
                 	<span class="button"><g:actionSubmit name="create" class="save" action="saveAndAssignStudent" value="${message(code: 'default.button.createAndAssignStudents.label', default: 'Create and Assign Students')}" /></span>                                	
-                </div>
-                <div class="buttons">
                     <span class="button"><g:actionSubmit name="create" class="save" action="saveAndAssignProject" value="${message(code: 'default.button.createAndAssignProjects.label', default: 'Create and Assign Projects')}" /></span>                
                 </div>
                 <div class="buttons">
-                    <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.createAndView.label', default: 'Create and View Team')}" /></span>
+                    <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.createAndView.label', default: 'Create and View Team         ')}" /></span>
+                    <span class="button"><g:actionSubmit name="create" class="save" action="saveAndCreateAnotherTeam" value="${message(code: 'default.button.saveAndCreateAnotherTeam.label', default: 'Save and Create Another Team')}" /></span>                
                 </div>
                 
             </g:form>

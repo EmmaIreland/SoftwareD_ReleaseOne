@@ -53,6 +53,18 @@ class TeamController {
 			render(view: "create", model: [teamInstance: teamInstance])
 		}
 	}
+	
+	def saveAndCreateAnotherTeam = {
+		def teamInstance = new Team(params)
+		if (teamInstance.save(flush: true)) {
+			flash.message = "${message(code: 'default.created.message', args: [message(code: 'team.label', default: 'Team'), teamInstance.name])}"
+			redirect(controller:"team", action: "create")
+		}
+		else {
+			render(view: "create", model: [teamInstance: teamInstance])
+		}
+	}
+	
 
     def show = {
         def teamInstance = Team.get(params.id)

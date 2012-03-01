@@ -41,6 +41,17 @@ class ProjectController {
 		}
 	}
 
+	def saveAndCreateTeam = {
+		def projectInstance = new Project(params)
+		if (projectInstance.save(flush: true)) {
+			flash.message = "${message(code: 'default.created.message', args: [message(code: 'project.label', default: 'Project'), projectInstance.name])}"
+			redirect(controller:"team",action: "create")
+		}
+		else {
+			render(view: "create", model: [projectInstance: projectInstance])
+		}
+	}
+	
     def show = {
         def projectInstance = Project.get(params.id)
         if (!projectInstance) {
