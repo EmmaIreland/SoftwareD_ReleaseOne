@@ -33,7 +33,7 @@
                     <g:each in="${enrollmentInstanceList}" status="i" var="enrollmentInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
-                            <td><g:link action="show" id="${enrollmentInstance.id}">${fieldValue(bean: enrollmentInstance, field: "course")}</g:link></td>
+                            <td><g:link controller="course" action="show" id="${enrollmentInstance.course.id}">${fieldValue(bean: enrollmentInstance, field: "course")}</g:link></td>
                         
                         
                             <td>${fieldValue(bean: enrollmentInstance, field: "student")}</td>

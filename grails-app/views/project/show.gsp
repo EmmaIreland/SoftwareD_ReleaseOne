@@ -60,7 +60,7 @@
                     
                     </tbody>
                 </table>
-            </div>
+                </div>
             <div class="buttons">
                 <g:form>
                     <g:hiddenField name="id" value="${projectInstance?.id}" />
@@ -68,6 +68,39 @@
                     <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
                 </g:form>
             </div>
+            <br></br>
+            <div class="list">
+                <table>
+                    <thead>
+                        <tr>
+                         
+                            <g:sortableColumn property="name" title="${message(code: 'project.team.label', default: 'Team')}" />
+                        
+                            <th><g:message code="project.course.label" default="Students" /></th>
+                            
+                        
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <g:each in="${projectInstance.teamAssignments.team}" status="i" var="k">
+                        <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
+                        
+                            <td><g:link controller="projectTeamAssignment" action="show" id="${k.id}">${k?.encodeAsHTML()}</g:link> </td>
+                        
+                        	<td valign="top" style="text-align: left;" class="value">
+                               <ul>
+                                <g:each in="${k.studentAssignments.student}" var="s">
+                      
+                                    <li><g:link controller="studentTeamAssignment" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></li>
+                                </g:each>
+                               </ul>
+                           </td>
+                        </tr>
+                    </g:each>
+                    </tbody>
+                </table>
+            </div>
+            
         </div>
     </body>
 </html>
