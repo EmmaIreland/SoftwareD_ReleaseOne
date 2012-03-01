@@ -61,11 +61,13 @@
             <div class="list">
                 <table>
                     <thead>
-                        <tr>
+                        <tr> 
                          
                             <g:sortableColumn property="name" title="${message(code: 'project.team.label', default: 'Team')}" />
                         
                             <th><g:message code="project.course.label" default="Students in Team" /></th>
+                            
+                            <th><g:message code="project.course.label" default="Comments" /></th>
                             
                         
                         </tr>
@@ -84,6 +86,8 @@
                                 </g:each>
                                </ul>
                            </td>
+                           <td valign="top" class="value">${fieldValue(bean: k, field: "comments")}</td>
+                          
                         </tr>
                     </g:each>
                     </tbody>
