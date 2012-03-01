@@ -9,7 +9,12 @@ import surveyTool.ProjectTeamAssignment;
 
 class BootStrap {
 
+	def noData() {
+		return Student.count() == 0
+	}
+	
     def init = { servletContext -> 
+		if (noData()) {
 		Manager sheepHerder = new Manager(name:'Sheep Herder Paul').save(failOnError:true)
 		Manager catHerder = new Manager(name:'Cat Herder Greg').save(failOnError:true)
 		
@@ -35,7 +40,7 @@ class BootStrap {
 		
 		ProjectTeamAssignment pAssignment = new ProjectTeamAssignment(project:gatherHay, team:beardedBandits).save(failOnError:true)
 		ProjectTeamAssignment pAssignment2 = new ProjectTeamAssignment(project:gatherHay, team:animalLovers).save(failOnError:true)
-		
+		}
     }
     def destroy = {
     }
