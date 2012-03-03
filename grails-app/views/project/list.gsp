@@ -37,10 +37,10 @@
 					<tr>
 
 						<g:sortableColumn property="name"
-							title="${message(code: 'project.course.label', default: 'Course')}" />
-
-						<g:sortableColumn property="name"
 							title="${message(code: 'project.projectName.label', default: 'Project Name')}" />
+							
+						<g:sortableColumn property="name"
+							title="${message(code: 'project.course.label', default: 'Course')}" />
 
 						<th><g:message code="project.team.label"
 								default="Teams Assigned To Project" />
@@ -54,25 +54,25 @@
 
 									<td valign="top" style="text-align: left;" class="value">
 										
-										<g:each in="${projectInstance.course}" var="projectCourses"> 
-										<g:link controller="course" action="show" id="${projectCourses.id}">${projectCourses?.encodeAsHTML()}</g:link>
+										<g:each in="${projectInstance}" var="project"> 
+										<g:link action="show" id="${project.id}">${project?.encodeAsHTML()}</g:link>
 										</g:each></td>
 
 									
 									<td valign="top" style="text-align: left;" class="value">
-										<ul>
-										<g:each in="${projectInstance.course.projects}" var="projectProjects">
-											<li><g:link controller="project" action="show" id="${projectProjects.id}"> ${projectProjects?.encodeAsHTML()}</g:link></li>
-										</g:each></ul></td>
+										
+										<g:each in="${projectInstance.course}" var="projectCourses">
+											<g:link controller="course" action="show" id="${projectCourses.id}"> ${projectCourses?.encodeAsHTML()}</g:link>
+										</g:each></td>
 
 							<!-- tried using 2 g:eachs here to prevent it from making duplicate teams for projects, logic is wrong?  -->
 									<td valign="top" style="text-align: left;" class="value">
 										<ul>
-										<g:each in="${projectInstance.course.projects}" var="projectProjects"> 
 										
-											<g:each in="${projectProjects.teamAssignments.team}" var="projectTeams">
+										
+											<g:each in="${projectInstance.teamAssignments.team}" var="projectTeams">
 												<li><g:link controller="team" action="show" id="${projectTeams.id}">${projectTeams?.encodeAsHTML()}</g:link></li>
-											</g:each>
+											
 										</g:each></ul></td>
 
 								</tr>
