@@ -92,6 +92,10 @@
                     </g:each>
                     </tbody>
                 </table>
+                <div class="buttons">
+                	<span class="menuButton"><g:link class="create" controller="team" action="create" ><g:message code="Create Team" args="[entityName]"/></g:link></span>
+                	<span class="menuButton"><g:link class="create" controller="studentTeamAssignment" action="create" ><g:message code="Add Student to Team" args="[entityName]"/></g:link></span>
+                </div>
             </div>
             
         </div>
