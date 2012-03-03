@@ -27,6 +27,8 @@
                             <th><g:message code="team.course.label" default="Course" /></th>
                             
                             <g:sortableColumn property="comments" title="${message(code: 'team.comments.label', default: 'Comments')}" />
+                            
+                            <th><g:message code="team.students.label" default="Team Members" /></th>
                         
                         </tr>
                     </thead>
@@ -37,9 +39,15 @@
                             <td><g:link action="show" id="${teamInstance.id}">${fieldValue(bean: teamInstance, field: "name")}</g:link></td>
                         
                         
-                            <td>${fieldValue(bean: teamInstance, field: "course")}</td>
+                            <td><g:link controller="course" action="show" id="${teamInstance.course.id}">${fieldValue(bean: teamInstance, field: "course")}</g:link></td>
                             <td>${fieldValue(bean: teamInstance, field: "comments")}</td>
-                        
+                            
+                    <td valign="top" style="text-align: left;" class="value">
+                    <ul>
+                    <g:each in="${teamInstance.studentAssignments.student}" var="studentTeams">          
+                            <li><g:link controller="student" action="show" id="${studentTeams.id}">${fieldValue(bean: studentTeams, field: "name")}</g:link></li>
+                    </g:each>
+                    </ul></td>
                         </tr>
                     </g:each>
                     </tbody>
