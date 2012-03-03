@@ -11,7 +11,7 @@
     <body>
         <div class="nav">
             <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
+            <span class="menuButton"><g:link class="list" controller="team" action="list"><g:message code="Team List" args="[entityName]" /></g:link></span>
         </div>
         <div class="body">
             <h1><g:message code="default.create.label" args="[entityName]" /></h1>
@@ -50,8 +50,13 @@
                     </table>
                 </div>
                 <div class="buttons">
-                    <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
+                    <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.createAndViewTeam.label', default: 'Create and View Team')}" /></span>
                 </div>
+                
+                <div class="buttons">
+                    <span class="button"><g:actionSubmit name="create" class="save" action="saveAndCreateAnother" value="${message(code: 'default.button.saveAndAssignAnother.label', default: 'Save and Assign Another')}" /></span>
+                </div>
+                
             </g:form>
         </div>
     </body>

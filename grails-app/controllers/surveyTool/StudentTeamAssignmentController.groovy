@@ -31,6 +31,17 @@ class StudentTeamAssignmentController {
             render(view: "create", model: [studentTeamAssignmentInstance: studentTeamAssignmentInstance])
         }
     }
+	
+	def saveAndCreateAnother = {
+		def studentTeamAssignmentInstance = new StudentTeamAssignment(params)
+		if (studentTeamAssignmentInstance.save(flush: true)) {
+			flash.message = "${message(code: 'studentTeamAssignment.created.message', args: [message(code: 'studentTeamAssignment.label', default: 'StudentTeamAssignment'), studentTeamAssignmentInstance.id, studentTeamAssignmentInstance.student, studentTeamAssignmentInstance.team])}"
+			redirect(action: "create")
+		}
+		else {
+			render(view: "create", model: [studentTeamAssignmentInstance: studentTeamAssignmentInstance])
+		}
+	}
 
     def show = {
         def studentTeamAssignmentInstance = StudentTeamAssignment.get(params.id)

@@ -25,12 +25,24 @@ class ProjectTeamAssignmentController {
         def projectTeamAssignmentInstance = new ProjectTeamAssignment(params)
         if (projectTeamAssignmentInstance.save(flush: true)) {
             flash.message = "${message(code: 'projectTeamAssignment.created.message', args: [message(code: 'projectTeamAssignment.label', default: 'ProjectTeamAssignment'), projectTeamAssignmentInstance.id, projectTeamAssignmentInstance.project, projectTeamAssignmentInstance.team])}"
-            redirect(action: "show", id: projectTeamAssignmentInstance.id)
+            redirect(controller:"project", action: "show", id: projectTeamAssignmentInstance.project.id)
         }
         else {
             render(view: "create", model: [projectTeamAssignmentInstance: projectTeamAssignmentInstance])
         }
     }
+	
+	
+	def saveAndCreateAnother = {
+		def projectTeamAssignmentInstance = new ProjectTeamAssignment(params)
+		if (projectTeamAssignmentInstance.save(flush: true)) {
+			flash.message = "${message(code: 'projectTeamAssignment.created.message', args: [message(code: 'projectTeamAssignment.label', default: 'ProjectTeamAssignment'), projectTeamAssignmentInstance.id, projectTeamAssignmentInstance.project, projectTeamAssignmentInstance.team])}"
+			redirect(action: "create")
+		}
+		else {
+			render(view: "create", model: [projectTeamAssignmentInstance: projectTeamAssignmentInstance])
+		}
+	}
 
     def show = {
         def projectTeamAssignmentInstance = ProjectTeamAssignment.get(params.id)
