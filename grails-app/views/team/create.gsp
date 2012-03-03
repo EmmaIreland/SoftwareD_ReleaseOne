@@ -64,7 +64,7 @@
                 </div>
                 <div class="buttons">
                     <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.createAndView.label', default: 'Create and View Team         ')}" /></span>
-                    <span class="button"><g:actionSubmit name="create" class="save" action="saveAndCreateAnotherTeam" value="${message(code: 'default.button.saveAndCreateAnotherTeam.label', default: 'Save and Create Another Team')}" /></span>                
+                    <span class="button"><g:actionSubmit name="create" class="save" action="saveAndCreateAnotherTeam" value="${message(code: 'default.button.saveAndCreateAnotherTeam.label', default: 'Save and Create Another Team')}" /></span>              
                 </div>
                 
             </g:form>

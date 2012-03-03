@@ -4,7 +4,7 @@ class Manager {
 
 	String name
 	
-	static hasMany = [courses:Course]
+	static hasMany = [courses:Course, surveys:Survey]
 	
     static constraints = {
 		name(blank:false)

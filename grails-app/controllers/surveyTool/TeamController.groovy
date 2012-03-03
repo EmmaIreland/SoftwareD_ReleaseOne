@@ -20,6 +20,8 @@ class TeamController {
         teamInstance.properties = params
         return [teamInstance: teamInstance]
     }
+	
+	
 
     def save = {
         def teamInstance = new Team(params)

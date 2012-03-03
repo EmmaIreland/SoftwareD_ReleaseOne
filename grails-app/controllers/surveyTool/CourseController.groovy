@@ -29,6 +29,8 @@ class CourseController {
             render(view: "create", model: [courseInstance: courseInstance])
         }
     }
+	
+
 
     def show = {
         def courseInstance = Course.get(params.id)
