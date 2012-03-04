@@ -4,6 +4,7 @@ import grails.test.*
 
 class SurveyTests extends GrailsUnitTestCase {
 	Manager manager = new Manager(name:'BOB')
+	Date date = new Date()
     protected void setUp() {
         super.setUp()
 		mockForConstraintsTests(Survey)
@@ -14,18 +15,20 @@ class SurveyTests extends GrailsUnitTestCase {
     }
 
     void testSurveyValidation() {
-		Survey survey = new Survey(name:'????', manager:manager)
+		Survey survey = new Survey(name:'????', manager:manager, dateDue:date.next())
 		assertTrue survey.validate()
     }
 	
 	void testBlankName() {
-		Survey survey = new Survey(name:'', manager:manager)
+		Survey survey = new Survey(name:'', manager:manager,dateDue:date.next())
 		assertFalse survey.validate()
 		assertEquals 'blank', survey.errors['name']
 	}
 	
+	
+	
 	void testToString() {
-		Survey survey = new Survey(name:'????', manager:manager)
+		Survey survey = new Survey(name:'????', manager:manager,dateDue:date.next())
 		assertTrue survey.validate()
 		assertEquals '????', survey.toString()
 	}

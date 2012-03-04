@@ -2,17 +2,17 @@ package surveyTool
 
 class Question {
 	
-	String name
+	String question
 	
 	static belongsTo = [survey:Survey]
 	
 	static hasMany = [answers:Answer]
 	
 	String toString() {
-		name
+		question
 	}
 
     static constraints = {
-		name(blank:false)
+		question(blank:false)
     }
 }

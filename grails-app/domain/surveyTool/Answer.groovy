@@ -2,15 +2,19 @@ package surveyTool
 
 class Answer {
 	
-	String name
+	String answer
 	
-	static belongsTo = [question:Question]
+	static belongsTo = [question:Question, student:Student]
 	
 	String toString() {
-		name
+		answer
 	}
 	
     static constraints = {
-		name(blank:false)
+		answer(blank:false)
+		
+		student validator: {student, answer -> Answer.findByStudentAndQuestion(student, answer.question) == null }
+		
+		
     }
 }

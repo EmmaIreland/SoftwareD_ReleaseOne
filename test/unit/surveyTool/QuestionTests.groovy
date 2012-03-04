@@ -15,18 +15,18 @@ class QuestionTests extends GrailsUnitTestCase {
     }
 
     void testQuestionValidation() {
-		Question question = new Question(name:'????', survey:survey)
+		Question question = new Question(question:'????', survey:survey)
 		assertTrue question.validate()
     }
 	
 	void testBlankName() {
-		Question question = new Question(name:'', survey:survey)
+		Question question = new Question(question:'', survey:survey)
 		assertFalse question.validate()
-		assertEquals 'blank', question.errors['name']	
+		assertEquals 'blank', question.errors['question']	
 	}
 	
 	void testToString() {
-		Question question = new Question(name:'????', survey:survey)
+		Question question = new Question(question:'????', survey:survey)
 		assertTrue question.validate()
 		assertEquals '????', question.toString()
 	}
