@@ -3,7 +3,7 @@ package surveyTool
 class Survey {
 	
 	String name
-	Date dateDue
+	Date dateDue 
 	
 	static belongsTo = [manager:Manager]
 	
@@ -11,7 +11,7 @@ class Survey {
 	
     static constraints = {
 		name(blank:false)
-		dateDue(validator: {dateDue -> dateDue.after(new Date())})
+		dateDue(validator: {dateDue -> dateDue.after(new Date().previous()) })
     }
 	
 	String toString() {

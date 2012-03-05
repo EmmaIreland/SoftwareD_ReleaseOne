@@ -15,12 +15,12 @@ class SurveyTests extends GrailsUnitTestCase {
     }
 
     void testSurveyValidation() {
-		Survey survey = new Survey(name:'????', manager:manager, dateDue:date.next())
+		Survey survey = new Survey(name:'????', manager:manager, dateDue:date)
 		assertTrue survey.validate()
     }
 	
 	void testBlankName() {
-		Survey survey = new Survey(name:'', manager:manager,dateDue:date.next())
+		Survey survey = new Survey(name:'', manager:manager,dateDue:date)
 		assertFalse survey.validate()
 		assertEquals 'blank', survey.errors['name']
 	}
@@ -28,7 +28,7 @@ class SurveyTests extends GrailsUnitTestCase {
 	
 	
 	void testToString() {
-		Survey survey = new Survey(name:'????', manager:manager,dateDue:date.next())
+		Survey survey = new Survey(name:'????', manager:manager,dateDue:date)
 		assertTrue survey.validate()
 		assertEquals '????', survey.toString()
 	}

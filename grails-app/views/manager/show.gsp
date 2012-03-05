@@ -15,7 +15,7 @@
             <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
         </div>
         <div class="body">
-            <h1><g:message code="default.show.label" args="[entityName]" /></h1>
+            <h1><g:message code="Manager Details" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -54,6 +54,44 @@
                     <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
                 </g:form>
             </div>
-        </div>
+            
+             <br></br>
+            <h1> Surveys Created </h1>
+            <div class="list">
+                <table>
+                    <thead>
+                        <tr> 
+                         
+                            <g:sortableColumn property="name" title="${message(code: 'manager.surveyName.label', default: 'Surveys Created')}" />
+                        
+                            <th><g:message code="survey.question.label" default="Survey Questions" /></th>                                                      
+                        
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <g:each in="${managerInstance.surveys}" status="i" var="k">
+                        <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
+                        
+                            <td><g:link controller="survey" action="show" id="${k.id}">${k?.encodeAsHTML()}</g:link> </td>
+                        
+                        	<td valign="top" style="text-align: left;" class="value">
+                               <ul>
+                                <g:each in="${k.questions}" var="s">
+                      
+                                    <li><g:link controller="question" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></li>
+                                </g:each>
+                               </ul>
+                           </td>                    
+                          
+                        </tr>
+                    </g:each>
+                    </tbody>
+                </table>
+                <div class="buttons">
+                	<span class="menuButton"><g:link class="create" controller="survey" action="create" ><g:message code="Create New Survey" args="[entityName]"/></g:link></span>
+                </div>
+            </div>
+            
+        </div>       
     </body>
 </html>
