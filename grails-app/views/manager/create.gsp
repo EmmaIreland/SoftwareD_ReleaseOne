@@ -43,6 +43,9 @@
                 <div class="buttons">
                     <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
                 </div>
+                <div class="buttons">
+                    <span class="button"><g:actionSubmit name="create" class="save" action="saveAndAddCourse" value="${message(code: 'default.button.createx.label', default: 'Save and Add Course')}" /></span>
+                </div>
             </g:form>
         </div>
     </body>

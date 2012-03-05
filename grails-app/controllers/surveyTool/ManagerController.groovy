@@ -31,6 +31,16 @@ class ManagerController {
             render(view: "create", model: [managerInstance: managerInstance])
         }
     }
+	def saveAndAddCourse = {
+		def managerInstance = new Manager(params)
+		if (managerInstance.save(flush: true)) {
+			flash.message = "${message(code: 'default.created.message', args: [message(code: 'manager.label', default: 'Manager'), managerInstance.name])}"
+			redirect(controller:"course",action: "create")
+		}
+		else {
+			render(view: "create", model: [managerInstance: managerInstance])
+		}
+	}
 
     def show = {
         def managerInstance = Manager.get(params.id)
