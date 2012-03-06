@@ -38,12 +38,13 @@
                                 </td>
                             </tr>
                         
+                            
+                            
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="student"><g:message code="enrollment.student.label" default="Student" /></label>
-                                </td>
+									<label for="student"><g:message code="enrollment.student.label" default="Student" /></label>                                </td>
                                 <td valign="top" class="value ${hasErrors(bean: enrollmentInstance, field: 'student', 'errors')}">
-                                    <g:select name="student.id" from="${surveyTool.Student.list()}" optionKey="id" value="${enrollmentInstance?.student?.id}"  />
+                                    <g:select name="student.id" from="${surveyTool.Student.list()}" multiple="yes" optionKey="id" size="5" value="${surveyInstance?.student*.id}" />
                                 </td>
                             </tr>
                         

@@ -4,9 +4,9 @@ class Question {
 	
 	String question
 	
-	static belongsTo = [survey:Survey]
+	static belongsTo = [Survey]
 	
-	static hasMany = [answers:Answer]
+	static hasMany = [answers:Answer, surveys:Survey]
 	
 	String toString() {
 		question

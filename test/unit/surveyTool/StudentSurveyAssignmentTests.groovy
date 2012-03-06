@@ -5,7 +5,7 @@ import grails.test.*
 class StudentSurveyAssignmentTests extends GrailsUnitTestCase {
 	Manager manager = new Manager(name:'BOB')
 	Survey survey = new Survey(name:'survey', manager:manager)
-	Question question = new Question(question:'????', survey:survey)
+	Question question = new Question(question:'????')
 	Student student = new Student(name:'Bart', email:'')
 	
 	protected void setUp() {

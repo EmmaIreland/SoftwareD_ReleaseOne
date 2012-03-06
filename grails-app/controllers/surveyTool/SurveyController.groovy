@@ -22,24 +22,13 @@ class SurveyController {
     def save = {
         def surveyInstance = new Survey(params)
         if (surveyInstance.save(flush: true)) {
-            flash.message = "${message(code: 'survey.created.message', args: [message(code: 'survey.label', default: 'Survey'), surveyInstance.name])}"
+            flash.message = "${message(code: 'default.created.message', args: [message(code: 'survey.label', default: 'Survey'), surveyInstance.id])}"
             redirect(action: "show", id: surveyInstance.id)
         }
         else {
             render(view: "create", model: [surveyInstance: surveyInstance])
         }
     }
-	
-	def saveAndAddQuestions = {
-		def surveyInstance = new Survey(params)
-		if (surveyInstance.save(flush: true)) {
-			flash.message = "${message(code: 'survey.created.message', args: [message(code: 'survey.label', default: 'Survey'), surveyInstance.name])}"
-			redirect(controller:"question", action:"create")
-		}
-		else {
-			render(view: "create", model: [surveyInstance: surveyInstance])
-		}
-	}
 
     def show = {
         def surveyInstance = Survey.get(params.id)

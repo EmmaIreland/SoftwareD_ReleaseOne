@@ -1,5 +1,3 @@
-
-
 <%@ page import="surveyTool.Survey" %>
 <html>
     <head>
@@ -54,15 +52,21 @@
                                     <g:select name="manager.id" from="${surveyTool.Manager.list()}" optionKey="id" value="${surveyInstance?.manager?.id}"  />
                                 </td>
                             </tr>
+                            
+                             <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="questions"><g:message code="survey.questions.label" default="Questions" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: surveyInstance, field: 'questions', 'errors')}">
+                                    <g:select name="questions" from="${surveyTool.Question.list()}" multiple="yes" optionKey="id" size="5" value="${surveyInstance?.questions*.id}" />
+                                </td>
+                            </tr>
                         
                         </tbody>
                     </table>
                 </div>
                 <div class="buttons">
                     <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.createAndView.label', default: 'Create and View')}" /></span>
-                </div>
-                <div class="buttons">
-                    <span class="button"><g:actionSubmit name="create" class="save" action="saveAndAddQuestions" value="${message(code: 'default.button.createAndAddQuestions.label', default: 'Create and Add Questions')}" /></span>
                 </div>
             </g:form>
         </div>
