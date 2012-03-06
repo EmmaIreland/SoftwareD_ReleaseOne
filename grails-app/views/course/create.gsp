@@ -61,7 +61,7 @@
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: courseInstance, field: 'manager', 'errors')}">
                   
-                                     <g:select name="manager.id" from="${surveyTool.Manager.list()}" value="${courseInstance?.manager?.id}" noSelection="['':'']" style="${style ? style : ''}"/>
+                                     <g:select name="manager.id" from="${surveyTool.Manager.list()}" optionKey="id" value="${courseInstance?.manager?.id}"  />
 
                                     
                                 </td>

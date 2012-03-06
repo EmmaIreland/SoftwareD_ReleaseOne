@@ -110,11 +110,11 @@
                            </td>
                            <td valign="top" style="text-align: left;" class="value">
                                <ul>
-                                <g:each in="${k.questions}" var="s">
-                               	 	<g:each in="${s.answers}" var="p">
+                                
+                               	 	<g:each in="${k.questions.answers}" var="p">
                       					<li>${fieldValue(bean: p, field: "answer")}</li>
                                		</g:each>
-                               	</g:each>
+                               	
                                </ul>
                            </td>
                           

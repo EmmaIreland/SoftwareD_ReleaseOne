@@ -45,19 +45,6 @@
                             
                         </tr>
                     
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="survey.questions.label" default="Questions" /></td>
-                            
-                            <td valign="top" style="text-align: left;" class="value">
-                                <ul>
-                                <g:each in="${surveyInstance.questions}" var="q">
-                                    <li><g:link controller="question" action="show" id="${q.id}">${q?.encodeAsHTML()}</g:link></li>
-                                </g:each>
-                                </ul>
-                            </td>
-                            
-                        </tr>
-                    
                     </tbody>
                 </table>
             </div>
@@ -69,6 +56,35 @@
                 </g:form>
             </div>
             
+            
+            <br></br>
+            <h1> Questions </h1>
+            <div class="list">
+                <table>
+                    <thead>
+                        <tr> 
+                         
+                            <g:sortableColumn property="name" title="${message(code: 'question.name.label', default: 'Questions')}" />
+                        
+                        
+                        </tr>
+                    </thead>
+                    <tbody>
+                     <g:each in="${surveyInstance.questions}" status="i" var="k">
+                        <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
+                            <td><g:link controller="question" action="show" id="${k.id}">${k?.encodeAsHTML()}</g:link></td>
+                        </tr>
+                    </g:each>
+                    
+                    </tbody>
+                </table>
+                <div class="buttons">
+                	<span class="menuButton"><g:link class="create" controller="question" action="create" ><g:message code="Add Questions" args="[entityName]"/></g:link></span>
+                </div>
+            </div>
+            
+            
+            
              <br></br>
             <h1> Assigned Students </h1>
             <div class="list">
@@ -77,6 +93,8 @@
                         <tr> 
                          
                             <g:sortableColumn property="name" title="${message(code: 'student.name.label', default: 'Students')}" />
+                            <g:sortableColumn property="name" title="${message(code: 'studentTeam.name.label', default: 'Assigned Team')}" />
+                            
                         
                         
                         </tr>
@@ -86,9 +104,19 @@
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
                             <td><g:link controller="student" action="show" id="${k.id}">${k?.encodeAsHTML()}</g:link> </td>
-                        
+                    
+                    <td valign="top" style="text-align: left;" class="value">
+                               <ul>
+                                <g:each in="${k.teamAssignments.team}" var="s">
+                      
+                                    <li><g:link controller="team" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></li>
+                                </g:each>
+                               </ul>
+                           </td>
                           
                         </tr>
+                        
+                        
                     </g:each>
                     </tbody>
                 </table>

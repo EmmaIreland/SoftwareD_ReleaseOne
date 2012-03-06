@@ -13,12 +13,12 @@
             <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
             <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
             <span class="menuButton"><g:link class="create" controller="student" action="create"><g:message code="New Student" args="[entityName]" /></g:link></span>
-            <span class="menuButton"><g:link class="create" controller="project" action="create"><g:message code="New Project" args="[entityName]" /></g:link></span>
             <span class="menuButton"><g:link class="create" controller="team" action="create"><g:message code="New Team" args="[entityName]" /></g:link></span>
+            <span class="menuButton"><g:link class="create" controller="survey" action="create"><g:message code="New Survey" args="[entityName]" /></g:link></span>
    			<span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
         </div>
         <div class="body">
-            <h1><g:message code="default.show.label" args="[entityName]" /></h1>
+            <h1><g:message code="Course Details" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -89,7 +89,11 @@
                     <span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
                     <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
                 </g:form>
-            </div>
+            </div>         
+            <div class="buttons">
+				<span class="menuButton"><g:link class="create" controller="project" action="create" ><g:message code="Create Projects" args="[entityName]"/></g:link></span>
+				<span class="menuButton"><g:link class="create" controller="enrollment" action="create" ><g:message code="Enroll Students" args="[entityName]"/></g:link></span>              
+            </div>    
         </div>
     </body>
 </html>
