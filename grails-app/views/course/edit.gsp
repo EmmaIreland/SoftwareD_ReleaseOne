@@ -86,16 +86,25 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="students"><g:message code="course.students.label" default="Students" /></label>
+                                  <label for="students"><g:message code="course.students.label" default="Students" /></label>  <br></br>
+                                                          <g:message code="course.studenthelp.label" default="(Ctrl click to select multiple" />
+                                                          <br></br>
+                                                          <g:message code="course.studenthelp.label" default="students, must be highlighted to" />
+                                                          <br></br>
+                                                          <g:message code="course.studenthelp.label" default="remain enrolled)" />
+                                  
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: courseInstance, field: 'students', 'errors')}">
                 <!-- from="${courseInstance.students} gives enrolled list -->
-                					
-                					
-                                    <g:select name="students" from="${surveyTool.Student.list()}" multiple="yes" optionKey="id" size="5" value="${courseInstance?.students*.id}" />
+               					
+                                    <g:select name="students" from="${surveyTool.Student.list()}" multiple="yes" optionKey="id" size="5" value="${courseInstance?.students*.id}" />                                   
                                 </td>
+                                
                             </tr>
-                        
+                        <tr>  
+                        <td>
+                        </td>
+                        </tr>
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="teams"><g:message code="course.teams.label" default="Teams" /></label>

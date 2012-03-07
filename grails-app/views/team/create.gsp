@@ -58,6 +58,10 @@
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="students"><g:message code="team.students.label" default="Students" /></label>
+                                  <br></br>
+                                   <g:message code="course.studenthelp.label" default="(Ctrl click to" />
+                                   <br></br>
+                                   <g:message code="course.studenthelp.label" default=" select multiple)" />
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: teamInstance, field: 'students', 'errors')}">
                                     <g:select name="students" from="${surveyTool.Student.list()}" multiple="yes" optionKey="id" size="5" value="${teamInstance?.students*.id}" />

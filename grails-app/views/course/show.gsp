@@ -13,7 +13,6 @@
             <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
             <span class="menuButton"><g:link class="create" controller="student" action="create"><g:message code="New Student" args="[entityName]" /></g:link></span>
             <span class="menuButton"><g:link class="create" controller="team" action="create"><g:message code="New Team" args="[entityName]" /></g:link></span>
-            <span class="menuButton"><g:link class="create" controller="survey" action="create"><g:message code="New Survey" args="[entityName]" /></g:link></span>
    			<span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
         </div>
         <div class="body">

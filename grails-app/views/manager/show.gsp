@@ -55,7 +55,7 @@
                 </g:form>
             </div>
             
-             <br></br>
+            <!--  <br></br>
             <h1> Surveys Created </h1>
             <div class="list">
                 <table>
@@ -90,7 +90,7 @@
                 <div class="buttons">
                 	<span class="menuButton"><g:link class="create" controller="survey" action="create" ><g:message code="Create New Survey" args="[entityName]"/></g:link></span>
                 </div>
-            </div>
+            </div>  --> 
             
         </div>       
     </body>

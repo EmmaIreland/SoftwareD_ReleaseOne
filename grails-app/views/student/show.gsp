@@ -36,7 +36,7 @@
                             
                         </tr>
                     
-                        <tr class="prop">
+                      <!--   <tr class="prop">
                             <td valign="top" class="name"><g:message code="student.answers.label" default="Answers" /></td>
                             
                             <td valign="top" style="text-align: left;" class="value">
@@ -47,7 +47,9 @@
                                 </ul>
                             </td>
                             
-                        </tr>
+                        </tr>  
+                        
+                         -->
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="student.courses.label" default="Courses" /></td>
@@ -61,7 +63,7 @@
                             </td>
                             
                         </tr>
-                    
+                    <!--  
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="student.surveys.label" default="Surveys" /></td>
                             
@@ -73,7 +75,9 @@
                                 </ul>
                             </td>
                             
-                        </tr>
+                        </tr>  
+                        
+                        -->
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="student.teams.label" default="Teams" /></td>
@@ -99,7 +103,14 @@
                 </g:form>
             </div>
             
+            <div class="buttons">
+            	<g:form>
+                    <g:hiddenField name="id" value="${courseInstance?.id}" />
+					<span class="menuButton"><g:link class="create" controller="course" action="list" ><g:message code="Select Course to Enroll Students" args="[entityName]"/></g:link></span>
+				</g:form>              
+            </div>    
             
+            <!--  
             <br></br>
             <h1> Assigned Surveys </h1>
             <div class="list">
@@ -147,7 +158,7 @@
                 <div class="buttons">
                 	<span class="menuButton"><g:link class="create" controller="answer" action="create" ><g:message code="Add Answer" args="[entityName]"/></g:link></span>
                 </div>
-            </div>
+            </div>  -->
             
 
         </div>

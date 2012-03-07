@@ -25,7 +25,6 @@
                 <div class="dialog">
                     <table>
                         <tbody>
-                        
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="name"><g:message code="student.name.label" default="Name" /></label>
@@ -51,6 +50,9 @@
 					<span class="button"><g:actionSubmit name="create" class="save" action="saveAndContinue" value="${message(code: 'default.button.createAndContinue.label', default: 'Save and Create Another')}"/></span>       
 				</div>
 
+				<div class="buttons">
+					<span class="button"><g:actionSubmit name="create" class="save" controller="course" action="saveAndEnroll" value="${message(code: 'default.button.saveAndEnrollStudents.label', default: 'Save and  Enroll Students')}"/></span>       
+				</div>
 				<div class="buttons">
                     <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.createAndViewStudent.label', default: 'Create and View Student')}" /></span>
                 </div>
