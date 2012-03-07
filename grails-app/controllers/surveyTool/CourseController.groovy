@@ -37,7 +37,14 @@ class CourseController {
             redirect(action: "list")
         }
         else {
-            [courseInstance: courseInstance]
+			def studentList = surveyTool.Student.list()
+			def notEnrolledList = []
+			for (student in studentList){
+				if(Student.findByCoursesNotEqual(courseInstance)){
+				notEnrolledList.add(student)	
+				}
+			}
+            [courseInstance: courseInstance, notEnrolled:notEnrolledList]
         }
     }
 

@@ -90,6 +90,8 @@
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: courseInstance, field: 'students', 'errors')}">
                 <!-- from="${courseInstance.students} gives enrolled list -->
+                					
+                					
                                     <g:select name="students" from="${surveyTool.Student.list()}" multiple="yes" optionKey="id" size="5" value="${courseInstance?.students*.id}" />
                                 </td>
                             </tr>
