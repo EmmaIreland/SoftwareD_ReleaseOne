@@ -34,6 +34,17 @@ class StudentController {
                         render(view: "create", model: [studentInstance: studentInstance])
                 }
         }
+		
+		def saveAndEnroll = {
+			def studentInstance = new Student(params)
+			if (studentInstance.save(flush: true)) {
+					flash.message = "${message(code: 'student.created.message', args: [message(code: 'student.label', default: 'Student'), studentInstance.name])}"
+					redirect(controller:"course", action: "list")
+			}
+			else {
+					render(view: "create", model: [studentInstance: studentInstance])
+			}
+	}
        
     def show = {
         def studentInstance = Student.get(params.id)
