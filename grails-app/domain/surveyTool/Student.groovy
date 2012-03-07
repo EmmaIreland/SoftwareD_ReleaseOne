@@ -4,8 +4,10 @@ class Student {
 	String name
 	String email
 	
-	static hasMany = [enrolled:Enrollment,teamAssignments:StudentTeamAssignment,
-		 surveyAssignments:StudentSurveyAssignment, answers:Answer]
+	static belongsTo = [Course, Survey, Team]
+	
+	static hasMany = [courses:Course,teams:Team,
+		 surveys:Survey, answers:Answer]
 
     static constraints = {
 		name(blank:false)

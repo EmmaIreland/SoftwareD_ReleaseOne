@@ -1,26 +1,20 @@
 package surveyTool
-
 class ProjectTeamAssignmentController {
-
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-	
-	
-
+       
+       
     def index = {
         redirect(action: "list", params: params)
     }
-
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [projectTeamAssignmentInstanceList: ProjectTeamAssignment.list(params), projectTeamAssignmentInstanceTotal: ProjectTeamAssignment.count()]
     }
-
     def create = {
         def projectTeamAssignmentInstance = new ProjectTeamAssignment()
         projectTeamAssignmentInstance.properties = params
         return [projectTeamAssignmentInstance: projectTeamAssignmentInstance]
     }
-
     def save = {
         def projectTeamAssignmentInstance = new ProjectTeamAssignment(params)
         if (projectTeamAssignmentInstance.save(flush: true)) {
@@ -31,19 +25,18 @@ class ProjectTeamAssignmentController {
             render(view: "create", model: [projectTeamAssignmentInstance: projectTeamAssignmentInstance])
         }
     }
-	
-	
-	def saveAndCreateAnother = {
-		def projectTeamAssignmentInstance = new ProjectTeamAssignment(params)
-		if (projectTeamAssignmentInstance.save(flush: true)) {
-			flash.message = "${message(code: 'projectTeamAssignment.created.message', args: [message(code: 'projectTeamAssignment.label', default: 'ProjectTeamAssignment'), projectTeamAssignmentInstance.id, projectTeamAssignmentInstance.project, projectTeamAssignmentInstance.team])}"
-			redirect(action: "create")
-		}
-		else {
-			render(view: "create", model: [projectTeamAssignmentInstance: projectTeamAssignmentInstance])
-		}
-	}
-
+       
+       
+        def saveAndCreateAnother = {
+                def projectTeamAssignmentInstance = new ProjectTeamAssignment(params)
+                if (projectTeamAssignmentInstance.save(flush: true)) {
+                        flash.message = "${message(code: 'projectTeamAssignment.created.message', args: [message(code: 'projectTeamAssignment.label', default: 'ProjectTeamAssignment'), projectTeamAssignmentInstance.id, projectTeamAssignmentInstance.project, projectTeamAssignmentInstance.team])}"
+                        redirect(action: "create")
+                }
+                else {
+                        render(view: "create", model: [projectTeamAssignmentInstance: projectTeamAssignmentInstance])
+                }
+        }
     def show = {
         def projectTeamAssignmentInstance = ProjectTeamAssignment.get(params.id)
         if (!projectTeamAssignmentInstance) {
@@ -54,7 +47,6 @@ class ProjectTeamAssignmentController {
             [projectTeamAssignmentInstance: projectTeamAssignmentInstance]
         }
     }
-
     def edit = {
         def projectTeamAssignmentInstance = ProjectTeamAssignment.get(params.id)
         if (!projectTeamAssignmentInstance) {
@@ -65,14 +57,13 @@ class ProjectTeamAssignmentController {
             return [projectTeamAssignmentInstance: projectTeamAssignmentInstance]
         }
     }
-
     def update = {
         def projectTeamAssignmentInstance = ProjectTeamAssignment.get(params.id)
         if (projectTeamAssignmentInstance) {
             if (params.version) {
                 def version = params.version.toLong()
                 if (projectTeamAssignmentInstance.version > version) {
-                    
+                   
                     projectTeamAssignmentInstance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'projectTeamAssignment.label', default: 'ProjectTeamAssignment')] as Object[], "Another user has updated this ProjectTeamAssignment while you were editing")
                     render(view: "edit", model: [projectTeamAssignmentInstance: projectTeamAssignmentInstance])
                     return
@@ -92,7 +83,6 @@ class ProjectTeamAssignmentController {
             redirect(action: "list")
         }
     }
-
     def delete = {
         def projectTeamAssignmentInstance = ProjectTeamAssignment.get(params.id)
         if (projectTeamAssignmentInstance) {

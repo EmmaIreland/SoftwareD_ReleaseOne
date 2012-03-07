@@ -1,4 +1,3 @@
-
 <%@ page import="surveyTool.Course" %>
 <html>
     <head>

@@ -1,4 +1,3 @@
-
 <%@ page import="surveyTool.Course" %>
 
 <html>
@@ -55,12 +54,12 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="course.enrolled.label" default="Enrolled" /></td>
+                            <td valign="top" class="name"><g:message code="course.students.label" default="Students" /></td>
                             
                             <td valign="top" style="text-align: left;" class="value">
                                 <ul>
-                                <g:each in="${courseInstance.enrolled}" var="e">
-                                    <li><g:link controller="student" action="show" id="${e.student.id}">${e?.encodeAsHTML()}</g:link></li>
+                                <g:each in="${courseInstance.students}" var="s">
+                                    <li><g:link controller="student" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></li>
                                 </g:each>
                                 </ul>
                             </td>
@@ -91,8 +90,11 @@
                 </g:form>
             </div>         
             <div class="buttons">
-				<span class="menuButton"><g:link class="create" controller="project" action="create" ><g:message code="Create Projects" args="[entityName]"/></g:link></span>
-				<span class="menuButton"><g:link class="create" controller="enrollment" action="create" ><g:message code="Enroll Students" args="[entityName]"/></g:link></span>              
+            	<g:form>
+                    <g:hiddenField name="id" value="${courseInstance?.id}" />
+					<span class="menuButton"><g:link class="create" controller="project" action="create" ><g:message code="Create Projects" args="[entityName]"/></g:link></span>
+					<span class="button"><g:actionSubmit class="save" action="edit" value="${message(code: 'default.button.enrollStudents.label', default: 'Enroll Students')}" /></span>
+				</g:form>              
             </div>    
         </div>
     </body>

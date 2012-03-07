@@ -1,5 +1,3 @@
-
-
 <%@ page import="surveyTool.Course" %>
 <html>
     <head>
@@ -66,6 +64,16 @@
                                     
                                 </td>
                             </tr>
+                            
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="students"><g:message code="course.students.label" default="Students" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: courseInstance, field: 'students', 'errors')}">
+                                    <g:select name="students" from="${surveyTool.Student.list()}" multiple="yes" optionKey="id" size="5" value="${courseInstance?.students*.id}" />
+                                </td>
+                            </tr>
+                            
                         
                         </tbody>
                     </table>

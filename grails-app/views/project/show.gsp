@@ -80,7 +80,7 @@
                         
                         	<td valign="top" style="text-align: left;" class="value">
                                <ul>
-                                <g:each in="${k.studentAssignments.student}" var="s">
+                                <g:each in="${k.students}" var="s">
                       
                                     <li><g:link controller="student" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></li>
                                 </g:each>
@@ -94,7 +94,6 @@
                 </table>
                 <div class="buttons">
                 	<span class="menuButton"><g:link class="create" controller="team" action="create" ><g:message code="Create Team" args="[entityName]"/></g:link></span>
-                	<span class="menuButton"><g:link class="create" controller="studentTeamAssignment" action="create" ><g:message code="Add Student to Team" args="[entityName]"/></g:link></span>
                 </div>
             </div>
             

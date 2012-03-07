@@ -13,7 +13,6 @@
             <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
             <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
             <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
-            <span class="menuButton"><g:link class="create" controller="enrollment" action="create"><g:message code="New Enrollment" args="[entityName]" /></g:link></span>
             <span class="menuButton"><g:link class="create" controller="studentTeamAssignment" action="create"><g:message code="New Student Team Assignment" args="[entityName]" /></g:link></span>
         </div>
         <div class="body">
@@ -41,8 +40,8 @@
                                     <g:textField name="name" value="${studentInstance?.name}" />
                                 </td>
                             </tr>
-                            
-                             <tr class="prop">
+                        
+                            <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="email"><g:message code="student.email.label" default="Email" /></label>
                                 </td>
@@ -53,33 +52,44 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="enrolled"><g:message code="student.enrolled.label" default="Enrolled" /></label>
+                                  <label for="answers"><g:message code="student.answers.label" default="Answers" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: studentInstance, field: 'enrolled', 'errors')}">
+                                <td valign="top" class="value ${hasErrors(bean: studentInstance, field: 'answers', 'errors')}">
                                     
 <ul>
-<g:each in="${studentInstance?.enrolled?}" var="e">
-    <li><g:link controller="enrollment" action="show" id="${e.id}">${e?.encodeAsHTML()}</g:link></li>
+<g:each in="${studentInstance?.answers?}" var="a">
+    <li><g:link controller="answer" action="show" id="${a.id}">${a?.encodeAsHTML()}</g:link></li>
 </g:each>
 </ul>
-<g:link controller="enrollment" action="create" params="['student.id': studentInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'enrollment.label', default: 'Enrollment')])}</g:link>
+<g:link controller="answer" action="create" params="['student.id': studentInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'answer.label', default: 'Answer')])}</g:link>
 
                                 </td>
                             </tr>
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="teamAssignments"><g:message code="student.teamAssignments.label" default="Team Assignments" /></label>
+                                  <label for="courses"><g:message code="student.courses.label" default="Courses" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: studentInstance, field: 'teamAssignments', 'errors')}">
+                                <td valign="top" class="value ${hasErrors(bean: studentInstance, field: 'courses', 'errors')}">
                                     
-<ul>
-<g:each in="${studentInstance?.teamAssignments?}" var="t">
-    <li><g:link controller="studentTeamAssignment" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></li>
-</g:each>
-</ul>
-<g:link controller="studentTeamAssignment" action="create" params="['student.id': studentInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'studentTeamAssignment.label', default: 'StudentTeamAssignment')])}</g:link>
-
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="surveys"><g:message code="student.surveys.label" default="Surveys" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: studentInstance, field: 'surveys', 'errors')}">
+                                    
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="teams"><g:message code="student.teams.label" default="Teams" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: studentInstance, field: 'teams', 'errors')}">
+                                    
                                 </td>
                             </tr>
                         

@@ -7,16 +7,14 @@ class Course {
 	
 	static belongsTo = [manager:Manager]
 	
-	static hasMany = [enrolled:Enrollment, projects:Project, teams:Team]
+	static hasMany = [students:Student, projects:Project, teams:Team]
 	
 	
     static constraints = {
-		
 		courseName(blank:false, unique:['term', 'year'])
-		term inList:['Fall', 'Spring', 'Summer']
+		term inList:['Fall', 'Spring', 'Summer 1', 'Summer 2']
 		year()
 		manager()
-		enrolled()
     }
 	
 	String toString() {

@@ -39,15 +39,6 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="course"><g:message code="team.course.label" default="Course" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: teamInstance, field: 'course', 'errors')}">
-                                    <g:select name="course.id" from="${surveyTool.Course.list()}" optionKey="id" value="${teamInstance?.course?.id}"  />
-                                </td>
-                            </tr>
-                            
-                             <tr class="prop">
-                                <td valign="top" class="name">
                                     <label for="comments"><g:message code="team.comments.label" default="Comments" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: teamInstance, field: 'comments', 'errors')}">
@@ -55,18 +46,36 @@
                                 </td>
                             </tr>
                         
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="course"><g:message code="team.course.label" default="Course" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: teamInstance, field: 'course', 'errors')}">
+                                    <g:select name="course.id" from="${surveyTool.Course.list()}" optionKey="id" value="${teamInstance?.course?.id}"  />
+                                </td>
+                            </tr>
+                            
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="students"><g:message code="team.students.label" default="Students" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: teamInstance, field: 'students', 'errors')}">
+                                    <g:select name="students" from="${surveyTool.Student.list()}" multiple="yes" optionKey="id" size="5" value="${teamInstance?.students*.id}" />
+                                </td>
+                            </tr>
+                        
                         </tbody>
                     </table>
                 </div>
-                <div class="buttons">         	
-                	<span class="button"><g:actionSubmit name="create" class="save" action="saveAndAssignStudent" value="${message(code: 'default.button.createAndAssignStudents.label', default: 'Create and Assign Students')}" /></span>                                	
+                <div class="buttons">         	                                	
                     <span class="button"><g:actionSubmit name="create" class="save" action="saveAndAssignProject" value="${message(code: 'default.button.createAndAssignProjects.label', default: 'Create and Assign Projects')}" /></span>                
                 </div>
                 <div class="buttons">
-                    <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.createAndView.label', default: 'Create and View Team         ')}" /></span>
+                    <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.createAndView.label', default: 'Create and View Team')}" /></span>            
+                </div>
+                <div class="buttons">
                     <span class="button"><g:actionSubmit name="create" class="save" action="saveAndCreateAnotherTeam" value="${message(code: 'default.button.saveAndCreateAnotherTeam.label', default: 'Save and Create Another Team')}" /></span>              
                 </div>
-                
             </g:form>
         </div>
     </body>

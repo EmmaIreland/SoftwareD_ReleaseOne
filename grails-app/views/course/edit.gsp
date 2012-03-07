@@ -9,13 +9,12 @@
         <title><g:message code="default.edit.label" args="[entityName]" /></title>
     </head>
     <body>
-        <div class="nav">
+ 		<div class="nav">
             <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
             <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
-            <span class="menuButton"><g:link class="create" controller="enrollment" action="create"><g:message code="New Enrollment" args="[entityName]" /></g:link></span>
             <span class="menuButton"><g:link class="create" controller="project" action="create"><g:message code="New Project" args="[entityName]" /></g:link></span>
             <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>        
-        </div>
+        </div>>
         <div class="body">
             <h1><g:message code="default.edit.label" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
@@ -41,19 +40,19 @@
                                     <g:textField name="courseName" value="${courseInstance?.courseName}" />
                                 </td>
                             </tr>
-                            
+                        
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="term"><g:message code="course.term.label" default="Term" /></label>
+                                  <label for="term"><g:message code="course.term.label" default="Term" /></label>
                                 </td>
-                               <td valign="top" class="value ${hasErrors(bean: courseInstance, field: 'term', 'errors')}">
-                                    <g:select name="term" from="${courseInstance.constraints.term.inList}" value="${fieldValue(bean: courseInstance, field: 'term')}" valueMessagePrefix="course.term"  />
+                                <td valign="top" class="value ${hasErrors(bean: courseInstance, field: 'term', 'errors')}">
+                                    <g:select name="term" from="${courseInstance.constraints.term.inList}" value="${courseInstance?.term}" valueMessagePrefix="course.term"  />
                                 </td>
                             </tr>
-                             
-                             <tr class="prop">
+                        
+                            <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="year"><g:message code="course.year.label" default="Year" /></label>
+                                  <label for="year"><g:message code="course.year.label" default="Year" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: courseInstance, field: 'year', 'errors')}">
                                     <g:textField name="year" value="${courseInstance?.year}" />
@@ -71,22 +70,6 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="enrolled"><g:message code="course.enrolled.label" default="Enrolled" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: courseInstance, field: 'enrolled', 'errors')}">
-                                    
-<ul>
-<g:each in="${courseInstance?.enrolled?}" var="e">
-    <li><g:link controller="enrollment" action="show" id="${e.id}">${e?.encodeAsHTML()}</g:link></li>
-</g:each>
-</ul>
-<g:link controller="enrollment" action="create" params="['course.id': courseInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'enrollment.label', default: 'Enrollment')])}</g:link>
-
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
                                   <label for="projects"><g:message code="course.projects.label" default="Projects" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: courseInstance, field: 'projects', 'errors')}">
@@ -97,6 +80,32 @@
 </g:each>
 </ul>
 <g:link controller="project" action="create" params="['course.id': courseInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'project.label', default: 'Project')])}</g:link>
+
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="students"><g:message code="course.students.label" default="Students" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: courseInstance, field: 'students', 'errors')}">
+                <!-- from="${courseInstance.students} gives enrolled list -->
+                                    <g:select name="students" from="${surveyTool.Student.list()}" multiple="yes" optionKey="id" size="5" value="${courseInstance?.students*.id}" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="teams"><g:message code="course.teams.label" default="Teams" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: courseInstance, field: 'teams', 'errors')}">
+                                    
+<ul>
+<g:each in="${courseInstance?.teams?}" var="t">
+    <li><g:link controller="team" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></li>
+</g:each>
+</ul>
+<g:link controller="team" action="create" params="['course.id': courseInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'team.label', default: 'Team')])}</g:link>
 
                                 </td>
                             </tr>

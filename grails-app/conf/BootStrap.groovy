@@ -1,10 +1,9 @@
 import surveyTool.Course;
 import surveyTool.Student;
-import surveyTool.Enrollment;
+
 import surveyTool.Manager;
 import surveyTool.Project;
 import surveyTool.Team;
-import surveyTool.StudentTeamAssignment;
 import surveyTool.ProjectTeamAssignment;
 
 class BootStrap {
@@ -25,8 +24,6 @@ class BootStrap {
 //		Student jebadiah = new Student(name:'Jebadiah',email:'jeb@email.com').save(failOnError:true)
 //		Student gertrude = new Student(name:'Gertrude',email:'gert@email.com').save(failOnError:true)
 //		
-//		Enrollment enroll = new Enrollment(course:basketWeaving,student:roger).save(failOnError:true)
-//		Enrollment enroll2 = new Enrollment(course:basketWeaving,student:gertrude).save(failOnError:true)
 //		
 //		Project butterChurning = new Project(name:'Butter Churning', description:'', course:amish101).save(failOnError:true)
 //		Project gatherHay = new Project(name:'Gathering Hay', description:'Gathering a lot!',course:basketWeaving).save(failOnError:true)

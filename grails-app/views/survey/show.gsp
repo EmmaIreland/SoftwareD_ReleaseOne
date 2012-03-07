@@ -1,3 +1,4 @@
+
 <%@ page import="surveyTool.Survey" %>
 <html>
     <head>
@@ -21,7 +22,6 @@
             <div class="dialog">
                 <table>
                     <tbody>
-                
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="survey.name.label" default="Name" /></td>
@@ -43,7 +43,7 @@
                             <td valign="top" class="value"><g:link controller="manager" action="show" id="${surveyInstance?.manager?.id}">${surveyInstance?.manager?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
-                    
+
                     </tbody>
                 </table>
             </div>
@@ -93,20 +93,18 @@
                          
                             <g:sortableColumn property="name" title="${message(code: 'student.name.label', default: 'Students')}" />
                             <g:sortableColumn property="name" title="${message(code: 'studentTeam.name.label', default: 'Assigned Team')}" />
-                            
-                        
-                        
+
                         </tr>
                     </thead>
                     <tbody>
-                    <g:each in="${surveyInstance.studentAssignments.student}" status="i" var="k">
+                    <g:each in="${surveyInstance.students}" status="i" var="k">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
                             <td><g:link controller="student" action="show" id="${k.id}">${k?.encodeAsHTML()}</g:link> </td>
                     
                     <td valign="top" style="text-align: left;" class="value">
                                <ul>
-                                <g:each in="${k.teamAssignments.team}" var="s">
+                                <g:each in="${k.teams}" var="s">
                       
                                     <li><g:link controller="team" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></li>
                                 </g:each>
@@ -119,10 +117,9 @@
                     </g:each>
                     </tbody>
                 </table>
-                <div class="buttons">
-                	<span class="menuButton"><g:link class="create" controller="studentSurveyAssignment" action="create" ><g:message code="Assign Students" args="[entityName]"/></g:link></span>
-                </div>
             </div>
+            
+            
             
         </div>
     </body>

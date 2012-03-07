@@ -1,24 +1,18 @@
 package surveyTool
-
 class StudentController {
-
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-
     def index = {
         redirect(action: "list", params: params)
     }
-
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [studentInstanceList: Student.list(params), studentInstanceTotal: Student.count()]
     }
-
     def create = {
         def studentInstance = new Student()
         studentInstance.properties = params
         return [studentInstance: studentInstance]
     }
-
     def save = {
         def studentInstance = new Student(params)
         if (studentInstance.save(flush: true)) {
@@ -29,29 +23,18 @@ class StudentController {
             render(view: "create", model: [studentInstance: studentInstance])
         }
     }
-	
-	def saveAndContinue = {
-		def studentInstance = new Student(params)
-		if (studentInstance.save(flush: true)) {
-			flash.message = "${message(code: 'student.created.message', args: [message(code: 'student.label', default: 'Student'), studentInstance.name])}"
-			redirect(controller:"student", action: "create")
-		}
-		else {
-			render(view: "create", model: [studentInstance: studentInstance])
-		}
-	}
-	
-	def saveAndEnroll = {
-		def studentInstance = new Student(params)
-		if (studentInstance.save(flush: true)) {
-			flash.message = "${message(code: 'student.created.message', args: [message(code: 'student.label', default: 'Student'), studentInstance.name])}"
-			redirect(controller:"enrollment", action: "create")
-		}
-		else {
-			render(view: "create", model: [studentInstance: studentInstance])
-		}
-	}
-
+       
+        def saveAndContinue = {
+                def studentInstance = new Student(params)
+                if (studentInstance.save(flush: true)) {
+                        flash.message = "${message(code: 'student.created.message', args: [message(code: 'student.label', default: 'Student'), studentInstance.name])}"
+                        redirect(controller:"student", action: "create")
+                }
+                else {
+                        render(view: "create", model: [studentInstance: studentInstance])
+                }
+        }
+       
     def show = {
         def studentInstance = Student.get(params.id)
         if (!studentInstance) {
@@ -62,7 +45,6 @@ class StudentController {
             [studentInstance: studentInstance]
         }
     }
-
     def edit = {
         def studentInstance = Student.get(params.id)
         if (!studentInstance) {
@@ -73,14 +55,13 @@ class StudentController {
             return [studentInstance: studentInstance]
         }
     }
-
     def update = {
         def studentInstance = Student.get(params.id)
         if (studentInstance) {
             if (params.version) {
                 def version = params.version.toLong()
                 if (studentInstance.version > version) {
-                    
+                   
                     studentInstance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'student.label', default: 'Student')] as Object[], "Another user has updated this Student while you were editing")
                     render(view: "edit", model: [studentInstance: studentInstance])
                     return
@@ -100,7 +81,6 @@ class StudentController {
             redirect(action: "list")
         }
     }
-
     def delete = {
         def studentInstance = Student.get(params.id)
         if (studentInstance) {

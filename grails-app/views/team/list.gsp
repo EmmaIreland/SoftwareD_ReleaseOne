@@ -11,7 +11,6 @@
         <div class="nav">
             <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
             <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
-            <span class="menuButton"><g:link class="create" controller="studentTeamAssignment" action="create"><g:message code="Add Students to Team" args="[entityName]" /></g:link></span>
         </div>
         <div class="body">
             <h1><g:message code="default.list.label" args="[entityName]" /></h1>
@@ -22,15 +21,10 @@
                 <table>
                     <thead>
                         <tr>
-                         
-                            <g:sortableColumn property="name" title="${message(code: 'team.name.label', default: 'Name')}" />
-                        
-                            <th><g:message code="team.course.label" default="Course" /></th>
-                            
+                        	<g:sortableColumn property="name" title="${message(code: 'team.name.label', default: 'Name')}" />
+                        	<th><g:message code="team.course.label" default="Course" /></th>
                             <g:sortableColumn property="comments" title="${message(code: 'team.comments.label', default: 'Comments')}" />
-                            
-                            <th><g:message code="team.students.label" default="Team Members" /></th>
-                        
+							<g:sortableColumn property="students" title="${message(code: 'team.students.label', default: 'Students')}" />
                         </tr>
                     </thead>
                     <tbody>
@@ -39,16 +33,18 @@
                         
                             <td><g:link action="show" id="${teamInstance.id}">${fieldValue(bean: teamInstance, field: "name")}</g:link></td>
                         
-                        
                             <td><g:link controller="course" action="show" id="${teamInstance.course.id}">${fieldValue(bean: teamInstance, field: "course")}</g:link></td>
+                        
                             <td>${fieldValue(bean: teamInstance, field: "comments")}</td>
-                            
-                    <td valign="top" style="text-align: left;" class="value">
-                    <ul>
-                    <g:each in="${teamInstance.studentAssignments.student}" var="studentTeams">          
-                            <li><g:link controller="student" action="show" id="${studentTeams.id}">${fieldValue(bean: studentTeams, field: "name")}</g:link></li>
-                    </g:each>
-                    </ul></td>
+                        
+                            <td valign="top" style="text-align: left;" class="value">
+                    			<ul>
+                    				<g:each in="${teamInstance.students}" var="student">          
+                            			<li><g:link controller="student" action="show" id="${student.id}">${fieldValue(bean: student, field: "name")}</g:link></li>
+                    				</g:each>
+                    			</ul>
+                    		</td>
+                        
                         </tr>
                     </g:each>
                     </tbody>

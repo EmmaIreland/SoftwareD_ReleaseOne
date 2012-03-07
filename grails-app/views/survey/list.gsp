@@ -1,3 +1,4 @@
+
 <%@ page import="surveyTool.Survey" %>
 <html>
     <head>
@@ -19,7 +20,7 @@
             <div class="list">
                 <table>
                     <thead>
-                        <tr>                       
+                        <tr>
                         
                             <g:sortableColumn property="name" title="${message(code: 'survey.name.label', default: 'Name')}" />
                         
@@ -34,7 +35,7 @@
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
                             <td><g:link action="show" id="${surveyInstance.id}">${fieldValue(bean: surveyInstance, field: "name")}</g:link></td>
-                                                
+                        
                             <td><g:formatDate date="${surveyInstance.dateDue}" /></td>
                         
                             <td>${fieldValue(bean: surveyInstance, field: "manager")}</td>

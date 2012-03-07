@@ -7,7 +7,7 @@ class Team {
 	
 	static belongsTo = [course:Course]
 	
-	static hasMany = [studentAssignments:StudentTeamAssignment, projectAssignments:ProjectTeamAssignment]
+	static hasMany = [students:Student, projectAssignments:ProjectTeamAssignment]
 
 	static constraints = {
 		name(blank:false)

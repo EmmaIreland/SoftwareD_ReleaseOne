@@ -11,10 +11,9 @@
     <body>
         <div class="nav">
             <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
+            <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
             <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
             <span class="menuButton"><g:link class="create" controller="projectTeamAssignment" action="create"><g:message code="New Project Team Assignment" args="[entityName]" /></g:link></span>
-            <span class="menuButton"><g:link class="create" controller="studentTeamAssignment" action="create"><g:message code="New Student Team Assignment" args="[entityName]" /></g:link></span>
-            <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>        
         </div>
         <div class="body">
             <h1><g:message code="default.edit.label" args="[entityName]" /></h1>
@@ -44,19 +43,19 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="course"><g:message code="team.course.label" default="Course" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: teamInstance, field: 'course', 'errors')}">
-                                    <g:select name="course.id" from="${surveyTool.Course.list()}" optionKey="id" value="${teamInstance?.course?.id}"  />
-                                </td>
-                            </tr>
-                            
-                            <tr class="prop">
-                                <td valign="top" class="name">
                                   <label for="comments"><g:message code="team.comments.label" default="Comments" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: teamInstance, field: 'comments', 'errors')}">
                                     <g:textField name="comments" value="${teamInstance?.comments}" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="course"><g:message code="team.course.label" default="Course" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: teamInstance, field: 'course', 'errors')}">
+                                    <g:select name="course.id" from="${surveyTool.Course.list()}" optionKey="id" value="${teamInstance?.course?.id}"  />
                                 </td>
                             </tr>
                         
@@ -78,17 +77,10 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="studentAssignments"><g:message code="team.studentAssignments.label" default="Student Assignments" /></label>
+                                  <label for="students"><g:message code="team.students.label" default="Students" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: teamInstance, field: 'studentAssignments', 'errors')}">
-                                    
-<ul>
-<g:each in="${teamInstance?.studentAssignments?}" var="s">
-    <li><g:link controller="studentTeamAssignment" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></li>
-</g:each>
-</ul>
-<g:link controller="studentTeamAssignment" action="create" params="['team.id': teamInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'studentTeamAssignment.label', default: 'StudentTeamAssignment')])}</g:link>
-
+                                <td valign="top" class="value ${hasErrors(bean: teamInstance, field: 'students', 'errors')}">
+                                    <g:select name="students" from="${surveyTool.Student.list()}" multiple="yes" optionKey="id" size="5" value="${teamInstance?.students*.id}" />
                                 </td>
                             </tr>
                         

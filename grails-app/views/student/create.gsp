@@ -1,5 +1,3 @@
-
-
 <%@ page import="surveyTool.Student" %>
 <html>
     <head>
@@ -52,9 +50,7 @@
                 <div class="buttons">
 					<span class="button"><g:actionSubmit name="create" class="save" action="saveAndContinue" value="${message(code: 'default.button.createAndContinue.label', default: 'Save and Create Another')}"/></span>       
 				</div>
-				<div class="buttons">
-					<span class="button"><g:actionSubmit name="create" class="save" action="saveAndEnroll" value="${message(code: 'default.button.createAndEnroll.label', default: 'Create and Enroll Student')}"/></span>       
-				</div>
+
 				<div class="buttons">
                     <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.createAndViewStudent.label', default: 'Create and View Student')}" /></span>
                 </div>

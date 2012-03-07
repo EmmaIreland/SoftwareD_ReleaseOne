@@ -69,17 +69,10 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="studentAssignments"><g:message code="survey.studentAssignments.label" default="Student Assignments" /></label>
+                                  <label for="students"><g:message code="survey.students.label" default="Students" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: surveyInstance, field: 'studentAssignments', 'errors')}">
-                                    
-<ul>
-<g:each in="${surveyInstance?.studentAssignments?}" var="s">
-    <li><g:link controller="studentSurveyAssignment" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></li>
-</g:each>
-</ul>
-<g:link controller="studentSurveyAssignment" action="create" params="['survey.id': surveyInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'studentSurveyAssignment.label', default: 'StudentSurveyAssignment')])}</g:link>
-
+                                <td valign="top" class="value ${hasErrors(bean: surveyInstance, field: 'students', 'errors')}">
+                                    <g:select name="students" from="${surveyTool.Student.list()}" multiple="yes" optionKey="id" size="5" value="${surveyInstance?.students*.id}" />
                                 </td>
                             </tr>
                         

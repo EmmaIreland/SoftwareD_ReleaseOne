@@ -4,7 +4,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
-        <g:set var="entityName" value="${message(code: 'projectTeamAssignment.label', default: 'Project Team Assignments')}" />
+        <g:set var="entityName" value="${message(code: 'projectTeamAssignment.label', default: 'ProjectTeamAssignment')}" />
         <title><g:message code="default.list.label" args="[entityName]" /></title>
     </head>
     <body>
@@ -22,8 +22,9 @@
                     <thead>
                         <tr>
                         
-                            <g:sortableColumn property="project" title="${message(code: 'projectTeamAssignment.project.label', default: 'Project')}" />
+                            <g:sortableColumn property="id" title="${message(code: 'projectTeamAssignment.id.label', default: 'Id')}" />
                         
+                            <th><g:message code="projectTeamAssignment.project.label" default="Project" /></th>
                         
                             <th><g:message code="projectTeamAssignment.team.label" default="Team" /></th>
                         
@@ -33,8 +34,9 @@
                     <g:each in="${projectTeamAssignmentInstanceList}" status="i" var="projectTeamAssignmentInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
-                            <td><g:link action="show" id="${projectTeamAssignmentInstance.id}">${fieldValue(bean: projectTeamAssignmentInstance, field: "project")}</g:link></td>
+                            <td><g:link action="show" id="${projectTeamAssignmentInstance.id}">${fieldValue(bean: projectTeamAssignmentInstance, field: "id")}</g:link></td>
                         
+                            <td>${fieldValue(bean: projectTeamAssignmentInstance, field: "project")}</td>
                         
                             <td>${fieldValue(bean: projectTeamAssignmentInstance, field: "team")}</td>
                         

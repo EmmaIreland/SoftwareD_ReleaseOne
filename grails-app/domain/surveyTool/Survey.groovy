@@ -7,7 +7,7 @@ class Survey {
 	
 	static belongsTo = [manager:Manager]
 	
-	static hasMany = [questions:Question, studentAssignments:StudentSurveyAssignment]
+	static hasMany = [questions:Question, students:Student]
 	
     static constraints = {
 		name(blank:false)

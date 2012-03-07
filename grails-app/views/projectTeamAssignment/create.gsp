@@ -5,7 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
-        <g:set var="entityName" value="${message(code: 'projectTeamAssignment.label', default: 'Project Team Assignment')}" />
+        <g:set var="entityName" value="${message(code: 'projectTeamAssignment.label', default: 'ProjectTeamAssignment')}" />
         <title><g:message code="default.create.label" args="[entityName]" /></title>
     </head>
     <body>
@@ -50,10 +50,7 @@
                     </table>
                 </div>
                 <div class="buttons">
-                    <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.createAndViewProject.label', default: 'Create and View Project')}" /></span>
-                </div>
-                <div class="buttons">
-                    <span class="button"><g:submitButton name="create" class="save" action="saveAndCreateAnother" value="${message(code: 'default.button.saveAndCreateAnother.label', default: 'Save and Create Another')}" /></span>
+                    <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
                 </div>
             </g:form>
         </div>
